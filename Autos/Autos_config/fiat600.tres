@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://DatosAuto.gd" type="Script" id=1]
+[ext_resource path="res://gameassets/fitito(CHIRIUBER).png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+nombre = "Fiat600"
+textura_sprite = ExtResource( 2 )
+aceleracion = 200.0
+velocidad_max = 300.0
+frenado = 500.0
+friccion = 0.08
+velocidad_giro = 3.0
+inercia_giro = 6.0
+deslizamiento_normal = 0.12
+deslizamiento_drift = 0.92
+multiplicador_giro_drift = 2.2
+velocidad_recuperacion_agarre = 4.5
+posicion_escape = Vector2( -100, 22 )
+posicion_rueda_izq = Vector2( -55, -42 )
+posicion_rueda_der = Vector2( -55, 42 )
+escala_humo_ruedas = Vector2( 0.8, 0.8 )

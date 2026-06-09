@@ -149,7 +149,7 @@ margin_bottom = 36.0
 custom_fonts/font = SubResource( 8 )
 text = "RETURN"
 
-[node name="salir" type="Button" parent="VBoxContainer"]
+[node name="salircelu" type="Button" parent="VBoxContainer"]
 pause_mode = 2
 margin_top = 40.0
 margin_right = 1024.0
@@ -160,4 +160,4 @@ text = "SALIR"
 [connection signal="pressed" from="gameover/HBoxContainer/reiniciar" to="." method="_on_reiniciar_pressed"]
 [connection signal="pressed" from="gameover/HBoxContainer/salir" to="." method="_on_salir_pressed"]
 [connection signal="pressed" from="VBoxContainer/volver" to="." method="_on_volver_pressed"]
-[connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="VBoxContainer/salircelu" to="." method="_on_salircelu_pressed"]

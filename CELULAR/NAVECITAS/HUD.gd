@@ -24,7 +24,7 @@ func _on_reiniciar_pressed():
 
 
 func _on_salir_pressed():
-	get_tree().quit()
+	get_tree().change_scene("res://CELULAR/CELULAR.tscn")
 
 
 
@@ -37,3 +37,8 @@ func _on_volver_pressed():
 
 
 
+
+
+func _on_salircelu_pressed():
+	get_tree().paused=false
+	get_tree().change_scene("res://CELULAR/CELULAR.tscn")

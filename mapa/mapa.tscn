@@ -2,7 +2,7 @@
 
 [ext_resource path="res://mapa/vereda.png" type="Texture" id=1]
 [ext_resource path="res://mapa/mapitanuevo.svg" type="Texture" id=2]
-[ext_resource path="res://mapa/TECHINGI.png" type="Texture" id=3]
+[ext_resource path="res://mapa/TECHINGI (1) (2).png" type="Texture" id=3]
 [ext_resource path="res://mapa/calletierra.png" type="Texture" id=4]
 [ext_resource path="res://mapa/veredaesquina.png" type="Texture" id=5]
 
@@ -37,7 +37,6 @@
 1/z_index = 0
 
 [sub_resource type="StreamTexture" id=2]
-load_path = "res://.import/TileCraftGroundSetVersion2.png-5541a665fe38f2ec8ff03a62436b1a40.stex"
 
 [sub_resource type="TileSet" id=3]
 0/name = " 0"

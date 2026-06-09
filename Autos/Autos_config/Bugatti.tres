@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Autos/DatosAuto.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+nombre = "Bugatti"
+textura_sprite = ExtResource( 2 )
+aceleracion = 700.0
+velocidad_max = 750.0
+frenado = 900.0
+friccion = 0.09
+velocidad_giro = 2.8
+inercia_giro = 8.0
+deslizamiento_normal = 0.15
+deslizamiento_drift = 0.85
+multiplicador_giro_drift = 1.8
+velocidad_recuperacion_agarre = 5.0
+posicion_escape = Vector2( -30, 0 )
+posicion_rueda_izq = Vector2( -20, -15 )
+posicion_rueda_der = Vector2( -20, 15 )
+escala_humo_ruedas = Vector2( 1, 1 )

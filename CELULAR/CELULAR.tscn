@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://CELULAR/CELUS/iFone(CHIRIUBER).png" type="Texture" id=1]
 [ext_resource path="res://CELULAR/APP/DIUB.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://CELULAR/APP/NETMARKET.png" type="Texture" id=9]
 [ext_resource path="res://CELULAR/APP/WASP.png" type="Texture" id=10]
 [ext_resource path="res://CELULAR/APP/MAP.png" type="Texture" id=11]
+[ext_resource path="res://CELULAR/CELULAR.gd" type="Script" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -38,6 +39,7 @@ animations = [ {
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 12 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -132,3 +134,7 @@ margin_right = 236.0
 margin_bottom = 70.0
 icon = ExtResource( 6 )
 flat = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/NAVECITA" to="." method="_on_NAVECITA_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/CASINO" to="." method="_on_CASINO_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/TRAEYO" to="." method="_on_TRAEYO_pressed"]

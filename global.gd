@@ -6,6 +6,10 @@ onready var time = true
 
 onready var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
+onready var peso:float
+
+onready var dolar:float
+
 onready var life : int = 3
 
 onready var sad : float = 0.5
