@@ -6,7 +6,6 @@
 [ext_resource path="res://mapa/calletierra.png" type="Texture" id=4]
 [ext_resource path="res://mapa/veredaesquina.png" type="Texture" id=5]
 
-
 [sub_resource type="TileSet" id=1]
 0/name = "mapitanuevo.svg 0"
 0/texture = ExtResource( 2 )
@@ -38,7 +37,6 @@
 1/z_index = 0
 
 [sub_resource type="StreamTexture" id=2]
-load_path = "res://.import/TileCraftGroundSetVersion2.png-5541a665fe38f2ec8ff03a62436b1a40.stex"
 
 [sub_resource type="TileSet" id=3]
 0/name = " 0"
