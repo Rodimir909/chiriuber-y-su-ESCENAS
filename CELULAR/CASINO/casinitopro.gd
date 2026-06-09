@@ -8,20 +8,20 @@ onready var c:int=0
 func _physics_process(delta):
 	if ppp==true:
 		if c==1:
-			$VBoxContainer/HBoxContainer/AnimatedSprite.speed_scale=GLOBAL.random(1,100)
-			$VBoxContainer/HBoxContainer/AnimatedSprite2.speed_scale=GLOBAL.random(1,100)
-			$VBoxContainer/HBoxContainer/AnimatedSprite3.speed_scale=GLOBAL.random(1,100)
-			$VBoxContainer/HBoxContainer/AnimatedSprite.playing=true
-			$VBoxContainer/HBoxContainer/AnimatedSprite2.playing=true
-			$VBoxContainer/HBoxContainer/AnimatedSprite3.playing=true
+			$AnimatedSprite.speed_scale=GLOBAL.random(1,100)
+			$AnimatedSprite2.speed_scale=GLOBAL.random(1,100)
+			$AnimatedSprite3.speed_scale=GLOBAL.random(1,100)
+			$AnimatedSprite.playing=true
+			$AnimatedSprite2.playing=true
+			$AnimatedSprite3.playing=true
 		contador+=1
 		print(contador)
 		if contador==200:
-			$VBoxContainer/HBoxContainer/AnimatedSprite3.playing=false
+			$AnimatedSprite.playing=false
 		if contador==300:
-			$VBoxContainer/HBoxContainer/AnimatedSprite2.playing=false
+			$AnimatedSprite2.playing=false
 		if contador==400:
-			$VBoxContainer/HBoxContainer/AnimatedSprite.playing=false
+			$AnimatedSprite3.playing=false
 			ppp=false
 			contador=0
 			$Button.disabled=false
