@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/simbolos de tragamoneda.png-bbf2d86372202028252c9fca1c2cb3da.stex"
+path="res://.import/TECHINGI (1) (2).png-bb8616d081bcdc7093612be1d2abd4c5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CELULAR/CASINO/simbolos de tragamoneda.png"
-dest_files=[ "res://.import/simbolos de tragamoneda.png-bbf2d86372202028252c9fca1c2cb3da.stex" ]
+source_file="res://mapa/TECHINGI (1) (2).png"
+dest_files=[ "res://.import/TECHINGI (1) (2).png-bb8616d081bcdc7093612be1d2abd4c5.stex" ]
 
 [params]
 

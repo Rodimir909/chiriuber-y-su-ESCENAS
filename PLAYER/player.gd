@@ -62,3 +62,5 @@ func _input(event):
 	if event.is_action_released("ui_accept"):
 		SPEED=100
 		$AnimatedSprite.speed_scale=1
+
+									   

@@ -8,3 +8,7 @@ func _on_CASINO_pressed():
 
 func _on_NAVECITA_pressed():
 	get_tree().change_scene("res://CELULAR/NAVECITAS/mundito pro.tscn")
+
+
+func _on_TRAEYO_pressed():
+	get_tree().change_scene("res://CELULAR/TRAEYO/TRAEYO.tscn")

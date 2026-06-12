@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://DatosAuto.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+nombre = "Auto"
+aceleracion = 600.0
+velocidad_max = 550.0
+frenado = 400.0
+friccion = 0.1
+velocidad_giro = 4.0
+inercia_giro = 5.0
+deslizamiento_normal = 0.15
+deslizamiento_drift = 0.85
+multiplicador_giro_drift = 1.8
+velocidad_recuperacion_agarre = 5.0
+posicion_escape = Vector2( -30, 0 )
+posicion_rueda_izq = Vector2( -20, -15 )
+posicion_rueda_der = Vector2( -20, 15 )
+escala_humo_ruedas = Vector2( 1, 1 )

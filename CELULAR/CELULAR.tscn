@@ -137,3 +137,4 @@ flat = true
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/NAVECITA" to="." method="_on_NAVECITA_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/CASINO" to="." method="_on_CASINO_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/TRAEYO" to="." method="_on_TRAEYO_pressed"]
