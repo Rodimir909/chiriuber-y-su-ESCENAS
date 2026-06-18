@@ -14,9 +14,12 @@ var rotacion_dir = 0
 var angulo_giro_actual = 0.0
 
 var is_player_on = false
+signal up 
+var canup = false
 
 func _ready():
 	if datos and datos is DatosAuto:
+		$Sprite.frame = datos.Color_CTRL
 		sprite.texture = datos.textura_sprite
 		deslizamiento_actual = datos.deslizamiento_normal
 		escape_pos.position = datos.posicion_escape
@@ -122,3 +125,20 @@ func gestionar_particulas(en_drift):
 		humo_rueda_izq.emitting = emitiendo_humo
 		humo_rueda_der.emitting = emitiendo_humo
 		cano_escape.emitting = not emitiendo_humo
+
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("player"):
+		canup = true
+
+func _on_Area2D_body_exited(body):
+	if body.is_in_group("player"):
+		canup = false
+		
+func _input(event):
+	if event.is_action_pressed("accion") and canup:
+		is_player_on = true
+		emit_signal("up")
+
+func _on_KinematicBody2D_down():
+	is_player_on = false

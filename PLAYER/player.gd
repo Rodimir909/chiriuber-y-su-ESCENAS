@@ -5,15 +5,19 @@ onready var  SPEED = 100 #velociad de la nave
 onready var motion = Vector2.ZERO #para que se mueva en vector x y
 onready var screensize = get_viewport_rect().size #saber el tamaño de la pantalla
 
-
+var is_on_car = false
+var can_down = false
+signal down
 
 func _ready():
 	$AnimatedSprite.play("IDLE")
 	
 func _physics_process(delta):
-	motion_ctrl()
-	motion = move_and_collide(motion  * delta)
-
+	if not is_on_car:
+		motion_ctrl()
+		motion = move_and_collide(motion* delta)
+	else:
+		pass
 func get_axis()->Vector2:
 	var axis = Vector2.ZERO
 	axis.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
@@ -48,12 +52,14 @@ func get_axis()->Vector2:
 	return axis
 	
 func motion_ctrl():
+
 	if get_axis() == Vector2.ZERO:
 		motion = Vector2.ZERO
 	else:
 		motion = get_axis().normalized()*SPEED
 	position.x = clamp(position.x, 0+8, screensize.x-8)
 	position.y = clamp(position.y, 0+12, screensize.y-10)
+
 	
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
@@ -62,5 +68,19 @@ func _input(event):
 	if event.is_action_released("ui_accept"):
 		SPEED=100
 		$AnimatedSprite.speed_scale=1
+	if event.is_action_pressed("accion") and can_down:
+		bajar()
+   
+func bajar():
+	is_on_car = false
+	$AnimatedSprite.visible = true
+	$CollisionShape2D.disabled = false
+	can_down = false
+	emit_signal("down")
 
-									   
+
+func _on_Auto_up():
+	is_on_car = true
+	$AnimatedSprite.visible = false
+	$CollisionShape2D.disabled = true
+	can_down = true

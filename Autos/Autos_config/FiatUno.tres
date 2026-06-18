@@ -1,10 +1,11 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://DatosAuto.gd" type="Script" id=1]
+[ext_resource path="res://Autos/DatosAuto.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
 nombre = "Uno"
+Color_CTRL = 0
 aceleracion = 260.0
 velocidad_max = 360.0
 frenado = 550.0
