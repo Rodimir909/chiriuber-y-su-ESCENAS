@@ -5,6 +5,8 @@ export (String) var nombre = "Auto"
 export (Texture) var textura_sprite
 export (int) var Color_CTRL
 
+export (int) var Cant_color
+
 export (float) var aceleracion = 600.0
 export (float) var velocidad_max = 550.0
 export (float) var frenado = 400.0

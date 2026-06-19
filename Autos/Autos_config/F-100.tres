@@ -8,6 +8,7 @@ script = ExtResource( 1 )
 nombre = "Auto"
 textura_sprite = ExtResource( 2 )
 Color_CTRL = 0
+Cant_color = 4
 aceleracion = 450.0
 velocidad_max = 550.0
 frenado = 400.0
