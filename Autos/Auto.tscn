@@ -5,10 +5,10 @@
 [ext_resource path="res://Autos/Auto.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 40.5, 39.5 )
+extents = Vector2( 11, 21.5 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.5, 29 )
+extents = Vector2( 24.5, 11 )
 
 [node name="Auto" type="KinematicBody2D"]
 script = ExtResource( 3 )
@@ -22,11 +22,11 @@ vframes = 4
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -1.5, -0.5 )
+position = Vector2( 2, 0.5 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.5, -3 )
+position = Vector2( 1.5, 1 )
 shape = SubResource( 1 )
 
 [node name="Humo" type="CPUParticles2D" parent="."]
@@ -36,6 +36,9 @@ visible = false
 
 [node name="Cañoescape" type="CPUParticles2D" parent="."]
 visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2( 0.5, 0.5 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
