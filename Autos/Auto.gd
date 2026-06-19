@@ -17,6 +17,10 @@ var is_player_on = false
 signal up 
 var canup = false
 
+var is_in_taller = false
+signal out
+
+
 var vida_auto = 100
 
 func _ready():
@@ -35,7 +39,7 @@ func _physics_process(delta):
 	if not datos:
 		return
 		
-	if not is_player_on:
+	if not is_player_on or is_in_taller:
 		velocidad = velocidad.linear_interpolate(Vector2.ZERO, datos.friccion * delta)
 		velocidad = move_and_slide(velocidad)
 		return
@@ -79,6 +83,8 @@ func _physics_process(delta):
 	velocidad = move_and_slide(velocidad)
 	procesar_choque()
 
+#---------------------- chocar ------------------------
+
 func procesar_choque():
 	if get_slide_count() > 0:
 		var fuerza_impacto = velocidad.length()
@@ -86,12 +92,16 @@ func procesar_choque():
 			vida_auto -= int(fuerza_impacto * 0.05)
 			vida_auto = max(vida_auto, 0)
 
+#----------------------------------- que salga el humo en drift --------------
+
 func gestionar_particulas(en_drift):
 	var emitiendo_humo = en_drift and velocidad.length() > 100
 	if humo_rueda_izq.emitting != emitiendo_humo:
 		humo_rueda_izq.emitting = emitiendo_humo
 		humo_rueda_der.emitting = emitiendo_humo
 		cano_escape.emitting = not emitiendo_humo
+
+#------------------------------- subida y bajda del pj ---------------------------------------
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
@@ -110,3 +120,37 @@ func _input(event):
 func _on_KinematicBody2D_down():
 	$Camera2D.current = false
 	is_player_on = false
+
+#------------- parte del taller aura 67 -------------------------------------
+
+
+func _on_Button_pressed():
+	#-1 color
+	datos.Color_CTRL -= 1
+	$Sprite.frame = datos.Color_CTRL
+
+
+func _on_Button2_pressed():
+	#+1 color
+	print(datos.Cant_color)
+	if  datos.Color_CTRL != datos.Cant_color:
+		datos.Color_CTRL += 1
+		$Sprite.frame = datos.Color_CTRL
+
+
+#----------------------------- entrada y salida del taller ----------------------------------------------
+
+func _on_taller_interfaz_taller():
+	is_in_taller = true
+
+
+func _on_taller_interfaz_outaller():
+	emit_signal("out")
+
+	is_in_taller = false
+
+
+
+
+
+
