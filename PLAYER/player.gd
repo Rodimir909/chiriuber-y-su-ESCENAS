@@ -72,6 +72,7 @@ func _input(event):
 		bajar()
    
 func bajar():
+	$Camera2D.current = true
 	is_on_car = false
 	$AnimatedSprite.visible = true
 	$CollisionShape2D.disabled = false
@@ -80,6 +81,7 @@ func bajar():
 
 
 func _on_Auto_up():
+	$Camera2D.current = false 
 	is_on_car = true
 	$AnimatedSprite.visible = false
 	$CollisionShape2D.disabled = true
