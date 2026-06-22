@@ -72,7 +72,7 @@ margin_left = 5.0
 margin_right = 101.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 96, 0 )
-text = "MATE"
+text = "CAFE"
 align = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer4"]
