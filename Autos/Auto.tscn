@@ -11,6 +11,7 @@ extents = Vector2( 40.5, 39.5 )
 extents = Vector2( 31.5, 29 )
 
 [node name="Auto" type="KinematicBody2D"]
+position = Vector2( 2, 0 )
 script = ExtResource( 3 )
 datos = ExtResource( 1 )
 
