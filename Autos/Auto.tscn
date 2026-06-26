@@ -15,7 +15,7 @@ extents = Vector2( 11, 21.5 )
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.5, 11 )
 
-[node name="Auto" type="KinematicBody2D"]
+[node name="Auto" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 3 )
 datos = ExtResource( 1 )
 
@@ -25,6 +25,7 @@ hframes = 4
 vframes = 4
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 2, 0.5 )
@@ -72,6 +73,7 @@ scale_amount_curve = ExtResource( 6 )
 color_ramp = ExtResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

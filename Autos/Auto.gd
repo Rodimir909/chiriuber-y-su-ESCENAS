@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+ 
 export (Resource) var datos
 
 onready var sprite = $Sprite
@@ -13,9 +13,9 @@ var deslizamiento_actual = 0.15
 var rotacion_dir = 0
 var angulo_giro_actual = 0.0
 
-var is_player_on = false
+var is_player_on = true
 signal up 
-var canup = false
+var canup = true
 
 var vida_auto = 100
 
@@ -30,11 +30,16 @@ func _ready():
 		humo_rueda_izq.scale = datos.escala_humo_ruedas
 		humo_rueda_der.scale = datos.escala_humo_ruedas
 	gestionar_particulas(false)
+	
+	if GLOBAL.teletrasportarse:
+		global_position = GLOBAL.posicion_aparicion
+		GLOBAL.teletrasportarse = false 
+		
+		
 
 func _physics_process(delta):
 	if not datos:
 		return
-		
 	if not is_player_on:
 		velocidad = velocidad.linear_interpolate(Vector2.ZERO, datos.friccion * delta)
 		velocidad = move_and_slide(velocidad)

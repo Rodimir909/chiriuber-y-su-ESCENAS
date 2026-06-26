@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Cambio de escena_1_3.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3506.5, 187 )
+
+[node name="Cambio de escena_1_3" type="Area2D"]
+script = ExtResource( 1 )
+proxima_Mapa = "res://mapa/Mapa_3.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3045.5, 163 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_Cambio_de_escena_1_3_body_entered"]
