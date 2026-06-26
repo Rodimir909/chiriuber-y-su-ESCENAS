@@ -18,7 +18,6 @@ signal up
 var canup = true
 
 var vida_auto = 100
-
 func _ready():
 	if datos and datos is DatosAuto:
 		$Sprite.frame = datos.Color_CTRL
