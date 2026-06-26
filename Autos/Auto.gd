@@ -2,6 +2,9 @@ extends KinematicBody2D
  
 export (Resource) var datos
 
+var VColor: int
+var CColor : int 
+
 onready var sprite = $Sprite
 onready var humo_rueda_izq = $Humo
 onready var humo_rueda_der = $Humo/Humo2
@@ -13,13 +16,17 @@ var deslizamiento_actual = 0.15
 var rotacion_dir = 0
 var angulo_giro_actual = 0.0
 
-var is_player_on = true
+var is_player_on = false
 signal up 
-var canup = true
+var canup = false
 
 var vida_auto = 100
 func _ready():
 	if datos and datos is DatosAuto:
+		CColor = datos.Cant_color
+		print(CColor)
+		VColor = datos.Color_CTRL
+		
 		$Sprite.frame = datos.Color_CTRL
 		sprite.texture = datos.textura_sprite
 		deslizamiento_actual = datos.deslizamiento_normal
@@ -114,3 +121,8 @@ func _input(event):
 func _on_KinematicBody2D_down():
 	$Camera2D.current = false
 	is_player_on = false
+
+
+func _on_taller_interfaz_taller():
+	is_player_on = false
+	canup = false

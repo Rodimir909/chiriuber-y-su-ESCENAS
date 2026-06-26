@@ -34,7 +34,7 @@ margin_right = 1024.0
 margin_bottom = 134.0
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer/Chng_color"]
+[node name="Color1" type="Button" parent="VBoxContainer/Chng_color"]
 margin_left = 443.0
 margin_right = 485.0
 margin_bottom = 36.0
@@ -48,7 +48,7 @@ margin_right = 534.0
 margin_bottom = 25.0
 text = "COLOR"
 
-[node name="Button2" type="Button" parent="VBoxContainer/Chng_color"]
+[node name="Color+" type="Button" parent="VBoxContainer/Chng_color"]
 margin_left = 538.0
 margin_right = 580.0
 margin_bottom = 36.0
@@ -101,6 +101,6 @@ flat = true
 
 [connection signal="outaller" from="." to="Auto" method="_on_taller_interfaz_outaller"]
 [connection signal="taller" from="." to="Auto" method="_on_taller_interfaz_taller"]
-[connection signal="pressed" from="VBoxContainer/Chng_color/Button" to="Auto" method="_on_Button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Chng_color/Button2" to="Auto" method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Chng_color/Color1" to="." method="_on_Color1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Chng_color/Color+" to="." method="_on_Color_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_Button_pressed"]

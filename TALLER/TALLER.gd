@@ -7,8 +7,10 @@ var precio :  int
 
 
 func _physics_process(delta):
-	if precio>0:
+	if precio>0 and GLOBAL.peso>precio:
 		$VBoxContainer2/Button.text = "Precio" + "\n" + str(precio)
+	elif precio>0 and GLOBAL.peso<precio:
+		$VBoxContainer2/Button.text = "Precio" + "\n" + str(precio) + "\n" + "dinero insuficiente"
 	else:
 		$VBoxContainer2/Button.text = "El auto no necesita reparse"
 	precio_ctrl()
@@ -26,10 +28,17 @@ func precio_ctrl():
 	precio=(100-$Auto.vida_auto)*100
 		
   
-
-
-
 func _on_Button_pressed():
 	if GLOBAL.peso>precio:
 		$Auto.vida_auto = 100
 
+func _on_Color_pressed():
+	if not $Auto.VColor==$Auto.CColor:
+		$Auto.VColor +=1
+		$Auto/Sprite.frame += 1
+
+
+
+func _on_Color1_pressed():
+	$Auto.VColor -=1
+	$Auto/Sprite.frame -= 1
