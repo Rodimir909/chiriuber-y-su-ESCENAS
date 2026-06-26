@@ -56,7 +56,6 @@ func _ready():
 #----------------REPARTIR------------------------------------------------
 
 func _physics_process(delta):
-	$Label.text=str(GLOBAL.peso)
 	print(GLOBAL.peso)
 	if losbool == true and veces < 400:
 		contador += 1

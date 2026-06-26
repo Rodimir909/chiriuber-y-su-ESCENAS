@@ -12,14 +12,9 @@ var N: int = -1
 
 onready var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
-<<<<<<< HEAD
 onready var peso:float 
 
-onready var dolar:float
-=======
-onready var peso: float
 onready var dolar: float
->>>>>>> CHIRI-casino-fisico-interfaz
 
 onready var life : int = 3
 onready var sad : float = 0.5

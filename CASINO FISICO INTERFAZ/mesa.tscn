@@ -94,42 +94,42 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 159.0
-margin_right = 243.0
-margin_bottom = 107.0
+margin_left = 158.0
+margin_right = 242.0
+margin_bottom = 106.0
 alignment = 2
 
 [node name="pedir" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_top = 63.0
+margin_top = 62.0
 margin_right = 84.0
-margin_bottom = 83.0
+margin_bottom = 82.0
 disabled = true
 text = "PEDIR"
 
 [node name="plantarse" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_top = 87.0
+margin_top = 86.0
 margin_right = 84.0
-margin_bottom = 107.0
+margin_bottom = 106.0
 disabled = true
 text = "PLANTARSE"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 247.0
-margin_right = 319.0
-margin_bottom = 107.0
+margin_left = 246.0
+margin_right = 318.0
+margin_bottom = 106.0
 alignment = 2
 
 [node name="doblar" type="Button" parent="HBoxContainer/VBoxContainer2"]
-margin_top = 63.0
+margin_top = 62.0
 margin_right = 72.0
-margin_bottom = 83.0
+margin_bottom = 82.0
 disabled = true
 text = "DOBLAR"
 
 [node name="repartir" type="Button" parent="HBoxContainer/VBoxContainer2"]
-margin_top = 87.0
+margin_top = 86.0
 margin_right = 72.0
-margin_bottom = 107.0
+margin_bottom = 106.0
 text = "REPARTIR"
 
 [node name="pc" type="Path2D" parent="."]
@@ -189,16 +189,16 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 66.0
+margin_top = 65.0
 margin_right = 118.0
-margin_bottom = 80.0
+margin_bottom = 79.0
 text = "APUESTA"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 84.0
+margin_top = 83.0
 margin_right = 118.0
-margin_bottom = 106.0
+margin_bottom = 105.0
 alignment = 1
 
 [node name="MENOS" type="Button" parent="VBoxContainer/HBoxContainer"]
