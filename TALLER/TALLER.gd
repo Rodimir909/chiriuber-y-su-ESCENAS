@@ -23,8 +23,13 @@ func _ready():
 	emit_signal("taller")
 
 func precio_ctrl():
-	var roto = $Auto.vida_auto
-	precio=(100-$Auto.vida_auto)*10
+	precio=(100-$Auto.vida_auto)*100
 		
   
+
+
+
+func _on_Button_pressed():
+	if GLOBAL.peso>precio:
+		$Auto.vida_auto = 100
 

@@ -1,8 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://CELULAR/NAVECITAS/sprites/Assets/spritesheets/enemy-big.png" type="Texture" id=1]
-[ext_resource path="res://Area2D.gd" type="Script" id=2]
+[ext_resource path="res://CELULAR/NAVECITAS/Area2D.gd" type="Script" id=2]
 [ext_resource path="res://CELULAR/NAVECITAS/explosion.tscn" type="PackedScene" id=3]
+
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )

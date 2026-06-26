@@ -103,3 +103,4 @@ flat = true
 [connection signal="taller" from="." to="Auto" method="_on_taller_interfaz_taller"]
 [connection signal="pressed" from="VBoxContainer/Chng_color/Button" to="Auto" method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Chng_color/Button2" to="Auto" method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_Button_pressed"]
