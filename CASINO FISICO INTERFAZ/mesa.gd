@@ -56,6 +56,13 @@ func _ready():
 #----------------REPARTIR------------------------------------------------
 
 func _physics_process(delta):
+	print(apuesta)
+	$Label.text=str(GLOBAL.peso)
+	if apuesta>0:
+		$HBoxContainer/VBoxContainer2/repartir.disabled=false
+		
+	else:
+		$HBoxContainer/VBoxContainer2/repartir.disabled=true
 	print(GLOBAL.peso)
 	if losbool == true and veces < 400:
 		contador += 1
@@ -104,6 +111,9 @@ func _physics_process(delta):
 
 
 func _on_repartir_pressed():
+	$ganaste.visible=false
+	$perdiste.visible=false
+	$empataste.visible=false
 	GLOBAL.peso-=apuesta
 	var cartas_viejas = get_tree().get_nodes_in_group("cartas_juego")
 	for c in cartas_viejas:
@@ -232,19 +242,24 @@ func comprobar_ganador():
 	print("--- FIN DE LA PARTIDA ---")
 	if u_puntos > 21:
 		print("Perdiste! Te pasaste de 21.")
+		$perdiste.visible=true
 
 	elif pc_puntos > 21:
 		print("Ganaste! El crupier se pasó.")
 		GLOBAL.peso+=apuesta*2
+		$ganaste.visible=true
 	elif u_puntos > pc_puntos:
 		print("Ganaste por mayor puntaje!")
 		GLOBAL.peso+=apuesta*2
+		$ganaste.visible=true
 	elif pc_puntos > u_puntos:
 		print("Perdiste. El crupier tiene mejor mano.")
+		$perdiste.visible=true
 
 	else:
 		print("Empate! Se devuelve la apuesta.")
 		GLOBAL.peso+=apuesta
+		$empataste.visible=true
 
 	$HBoxContainer/VBoxContainer2/repartir.disabled = false
 	if GLOBAL.peso>=100:

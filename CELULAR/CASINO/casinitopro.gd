@@ -4,6 +4,8 @@ var contador:float=0
 onready var ppp:bool=false
 onready var c:int=0
 
+var apuesta:int
+
 
 func _physics_process(delta):
 	if ppp==true:
@@ -35,4 +37,3 @@ func _on_Button_pressed():
 	ppp=true
 	c=1
 	$Button.disabled=true
-	print("push")

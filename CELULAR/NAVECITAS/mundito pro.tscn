@@ -11,7 +11,6 @@
 [ext_resource path="res://CELULAR/NAVECITAS/HUD.tscn" type="PackedScene" id=9]
 [ext_resource path="res://icon.png" type="Texture" id=10]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 260.5, 3.5 )
 

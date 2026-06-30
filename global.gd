@@ -12,7 +12,7 @@ var N: int = -1
 
 onready var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
-onready var peso:float 
+onready var peso:float=900
 
 onready var dolar: float
 
