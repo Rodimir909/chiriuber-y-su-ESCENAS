@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ganarganar.png-b66ffcb4ba87fe0ac38ecc04b982700c.stex"
+path="res://.import/ganarganar.png-82dea7186aa119c5791f9b0047980e27.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ganarganar.png"
-dest_files=[ "res://.import/ganarganar.png-b66ffcb4ba87fe0ac38ecc04b982700c.stex" ]
+source_file="res://CELULAR/CASINO/ganarganar.png"
+dest_files=[ "res://.import/ganarganar.png-82dea7186aa119c5791f9b0047980e27.stex" ]
 
 [params]
 

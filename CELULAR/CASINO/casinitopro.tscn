@@ -8,8 +8,9 @@
 [ext_resource path="res://CELULAR/CASINO/botontragamoneda/botonframe1.png" type="Texture" id=6]
 [ext_resource path="res://BOTONES/BOTON +.png" type="Texture" id=7]
 [ext_resource path="res://BOTONES/BOTON -.png" type="Texture" id=8]
-[ext_resource path="res://ganarganar.png" type="Texture" id=9]
+[ext_resource path="res://CELULAR/CASINO/ganarganar.png" type="Texture" id=9]
 [ext_resource path="res://CreatoDisplay-Medium.otf" type="DynamicFontData" id=10]
+
 
 [sub_resource type="AnimatedTexture" id=19]
 flags = 4
