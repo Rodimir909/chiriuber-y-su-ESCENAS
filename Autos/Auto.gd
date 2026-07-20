@@ -13,7 +13,7 @@ var deslizamiento_actual = 0.15
 var rotacion_dir = 0
 var angulo_giro_actual = 0.0
 
-var is_player_on = true
+var is_player_on = false
 signal up 
 var canup = false
 
