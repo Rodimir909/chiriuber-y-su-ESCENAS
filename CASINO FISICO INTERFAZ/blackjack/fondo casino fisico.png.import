@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fondo casino fisico.png-b6c7dcdb7842c79d3be0f405c918ba49.stex"
+path="res://.import/fondo casino fisico.png-4c36d7b062408131dd5a0ad71e3392e4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CASINO FISICO INTERFAZ/fondo casino fisico.png"
-dest_files=[ "res://.import/fondo casino fisico.png-b6c7dcdb7842c79d3be0f405c918ba49.stex" ]
+source_file="res://CASINO FISICO INTERFAZ/blackjack/fondo casino fisico.png"
+dest_files=[ "res://.import/fondo casino fisico.png-4c36d7b062408131dd5a0ad71e3392e4.stex" ]
 
 [params]
 

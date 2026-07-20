@@ -1,9 +1,9 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://CASINO FISICO INTERFAZ/carta.tscn" type="PackedScene" id=1]
-[ext_resource path="res://CASINO FISICO INTERFAZ/mesa.gd" type="Script" id=2]
-[ext_resource path="res://CASINO FISICO INTERFAZ/fondo casino fisico.png" type="Texture" id=3]
-[ext_resource path="res://CASINO FISICO INTERFAZ/animacion maso.png" type="Texture" id=4]
+[ext_resource path="res://CASINO FISICO INTERFAZ/blackjack/carta.tscn" type="PackedScene" id=1]
+[ext_resource path="res://CASINO FISICO INTERFAZ/blackjack/mesa.gd" type="Script" id=2]
+[ext_resource path="res://CASINO FISICO INTERFAZ/blackjack/fondo casino fisico.png" type="Texture" id=3]
+[ext_resource path="res://CASINO FISICO INTERFAZ/blackjack/animacion maso.png" type="Texture" id=4]
 [ext_resource path="res://BOTONES/BOTON -.png" type="Texture" id=5]
 [ext_resource path="res://BOTONES/BOTON +.png" type="Texture" id=6]
 [ext_resource path="res://CELULAR/NAVECITAS/varsity_regular.ttf" type="DynamicFontData" id=7]

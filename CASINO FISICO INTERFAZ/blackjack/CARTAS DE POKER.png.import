@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CARTAS DE POKER.png-a21d7f5e25b24de08ceeddaf8738c3df.stex"
+path="res://.import/CARTAS DE POKER.png-73fa41a2965663931b7b5a3621251a15.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CASINO FISICO INTERFAZ/CARTAS DE POKER.png"
-dest_files=[ "res://.import/CARTAS DE POKER.png-a21d7f5e25b24de08ceeddaf8738c3df.stex" ]
+source_file="res://CASINO FISICO INTERFAZ/blackjack/CARTAS DE POKER.png"
+dest_files=[ "res://.import/CARTAS DE POKER.png-73fa41a2965663931b7b5a3621251a15.stex" ]
 
 [params]
 

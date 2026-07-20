@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/animacion maso.png-b53c87efde17d3e2420bbd74506898b2.stex"
+path="res://.import/fondo de ruleta.png-f2817e7ede5b8a9f7dbcf12aa3adebc7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CASINO FISICO INTERFAZ/animacion maso.png"
-dest_files=[ "res://.import/animacion maso.png-b53c87efde17d3e2420bbd74506898b2.stex" ]
+source_file="res://CASINO FISICO INTERFAZ/ruleta/fondo de ruleta.png"
+dest_files=[ "res://.import/fondo de ruleta.png-f2817e7ede5b8a9f7dbcf12aa3adebc7.stex" ]
 
 [params]
 
