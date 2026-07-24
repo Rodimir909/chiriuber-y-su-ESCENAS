@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/fondo de ruleta.png" type="Texture" id=1]
 [ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/ruleta.png" type="Texture" id=2]
 [ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/ruletaa.gd" type="Script" id=3]
+[ext_resource path="res://BOTONES/rojo.png" type="Texture" id=4]
+[ext_resource path="res://BOTONES/negro.png" type="Texture" id=5]
+[ext_resource path="res://BOTONES/verde.png" type="Texture" id=6]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 60.0, 360.0, 127.0 ],
+"_edit_horizontal_guides_": [ 60.0, 360.0 ],
 "_edit_vertical_guides_": [ 60.0, 360.0, 202.0 ]
 }
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 4 )
 texture = ExtResource( 1 )
 centered = false
 
@@ -23,10 +27,570 @@ rotation = 3.90081
 texture = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 159.0
-margin_top = 12.0
-margin_right = 252.0
-margin_bottom = 48.0
+anchor_left = 0.155273
+anchor_top = 0.02
+anchor_right = 0.246094
+anchor_bottom = 0.08
 text = "que gire"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 801.0
+margin_top = 15.0
+margin_right = -38.0
+margin_bottom = -2.0
+
+[node name="cero" type="Button" parent="VBoxContainer"]
+margin_right = 185.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 0, 20 )
+text = "0"
+icon = ExtResource( 6 )
+flat = true
+icon_align = 1
+
+[node name="fila1" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 41.0
+margin_right = 185.0
+margin_bottom = 79.0
+
+[node name="uno" type="Button" parent="VBoxContainer/fila1"]
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+custom_constants/hseparation = -15
+text = "01"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="dos" type="Button" parent="VBoxContainer/fila1"]
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+custom_constants/hseparation = 0
+text = "02"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="tres" type="Button" parent="VBoxContainer/fila1"]
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "03"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="fila2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 83.0
+margin_right = 185.0
+margin_bottom = 121.0
+
+[node name="cuatro" type="Button" parent="VBoxContainer/fila2"]
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+text = "04"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="cinco" type="Button" parent="VBoxContainer/fila2"]
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "05"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="seis" type="Button" parent="VBoxContainer/fila2"]
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "06"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="fila3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 125.0
+margin_right = 185.0
+margin_bottom = 163.0
+
+[node name="siete" type="Button" parent="VBoxContainer/fila3"]
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+text = "07"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="ocho" type="Button" parent="VBoxContainer/fila3"]
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "08"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="nueve" type="Button" parent="VBoxContainer/fila3"]
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "09"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="fila4" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 167.0
+margin_right = 185.0
+margin_bottom = 205.0
+
+[node name="diez" type="Button" parent="VBoxContainer/fila4"]
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+text = "10"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="once" type="Button" parent="VBoxContainer/fila4"]
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "11"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="doce" type="Button" parent="VBoxContainer/fila4"]
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "12"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="fila5" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 209.0
+margin_right = 185.0
+margin_bottom = 247.0
+
+[node name="trece" type="Button" parent="VBoxContainer/fila5"]
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+text = "13"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="catorce" type="Button" parent="VBoxContainer/fila5"]
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "14"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="quince" type="Button" parent="VBoxContainer/fila5"]
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "15"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="fila6" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 251.0
+margin_right = 185.0
+margin_bottom = 289.0
+
+[node name="dieciseis" type="Button" parent="VBoxContainer/fila6"]
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+text = "16"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="diecisiete" type="Button" parent="VBoxContainer/fila6"]
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "17"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="dieciocho" type="Button" parent="VBoxContainer/fila6"]
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "18"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="fila7" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 293.0
+margin_right = 185.0
+margin_bottom = 331.0
+
+[node name="diecinueve" type="Button" parent="VBoxContainer/fila7"]
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+text = "19"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="veinte" type="Button" parent="VBoxContainer/fila7"]
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "20"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="veintiuno" type="Button" parent="VBoxContainer/fila7"]
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "21"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="fila8" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 335.0
+margin_right = 185.0
+margin_bottom = 373.0
+
+[node name="veintidos" type="Button" parent="VBoxContainer/fila8"]
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+text = "22"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="veintitres" type="Button" parent="VBoxContainer/fila8"]
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "23"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="veinticuatro" type="Button" parent="VBoxContainer/fila8"]
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "24"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="fila9" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 377.0
+margin_right = 185.0
+margin_bottom = 415.0
+
+[node name="veinticinco" type="Button" parent="VBoxContainer/fila9"]
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+text = "25"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="veintiseis" type="Button" parent="VBoxContainer/fila9"]
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "26"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="veintisiete" type="Button" parent="VBoxContainer/fila9"]
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "27"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="fila10" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 419.0
+margin_right = 185.0
+margin_bottom = 457.0
+
+[node name="veintiocho" type="Button" parent="VBoxContainer/fila10"]
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+text = "28"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="veintinueve" type="Button" parent="VBoxContainer/fila10"]
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "29"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="treinta" type="Button" parent="VBoxContainer/fila10"]
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "30"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="fila11" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 461.0
+margin_right = 185.0
+margin_bottom = 499.0
+
+[node name="treintayuno" type="Button" parent="VBoxContainer/fila11"]
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+text = "31"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="treintaydos" type="Button" parent="VBoxContainer/fila11"]
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "32"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="treintaytres" type="Button" parent="VBoxContainer/fila11"]
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "33"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="fila12" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 503.0
+margin_right = 185.0
+margin_bottom = 541.0
+
+[node name="treintaycuatro" type="Button" parent="VBoxContainer/fila12"]
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+text = "34"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="treintaycinco" type="Button" parent="VBoxContainer/fila12"]
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "35"
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+
+[node name="treintayseis" type="Button" parent="VBoxContainer/fila12"]
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "36"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+
+[node name="fila13" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 545.0
+margin_right = 185.0
+margin_bottom = 583.0
+
+[node name="columna1" type="Button" parent="VBoxContainer/fila13"]
+modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_right = 59.3
+margin_bottom = 38.5
+rect_min_size = Vector2( 59.3, 38.5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "1°"
+
+[node name="columna2" type="Button" parent="VBoxContainer/fila13"]
+modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_left = 63.0
+margin_right = 122.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "2°"
+
+[node name="columna3" type="Button" parent="VBoxContainer/fila13"]
+modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_left = 126.0
+margin_right = 185.3
+margin_bottom = 38.0
+rect_min_size = Vector2( 59.3, 0 )
+text = "3°"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_left = 0.729492
+anchor_top = 0.0933333
+anchor_right = 0.780273
+anchor_bottom = 0.931667
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="_1st12" type="Button" parent="VBoxContainer2"]
+modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_right = 52.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 0, 164 )
+text = "1st12"
+
+[node name="_2nd12" type="Button" parent="VBoxContainer2"]
+modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_top = 168.0
+margin_right = 52.0
+margin_bottom = 332.0
+rect_min_size = Vector2( 0, 164 )
+text = "2nd12"
+
+[node name="_3rd12" type="Button" parent="VBoxContainer2"]
+modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_top = 336.0
+margin_right = 52.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 0, 164 )
+text = "3rd12"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 687.0
+margin_top = 56.0
+margin_right = -280.0
+margin_bottom = -44.0
+
+[node name="_1to18" type="Button" parent="VBoxContainer3"]
+modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_right = 57.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+text = "1to18"
+
+[node name="Even" type="Button" parent="VBoxContainer3"]
+modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_top = 84.0
+margin_right = 57.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 0, 80 )
+text = "EVEN"
+
+[node name="Red" type="Button" parent="VBoxContainer3"]
+modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_top = 168.0
+margin_right = 57.0
+margin_bottom = 248.0
+rect_min_size = Vector2( 0, 80 )
+text = "RED"
+icon = ExtResource( 4 )
+icon_align = 1
+
+[node name="Black" type="Button" parent="VBoxContainer3"]
+modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_top = 252.0
+margin_right = 57.0
+margin_bottom = 332.0
+rect_min_size = Vector2( 0, 80 )
+text = "BLACK"
+icon = ExtResource( 5 )
+icon_align = 1
+
+[node name="Odd" type="Button" parent="VBoxContainer3"]
+modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_top = 336.0
+margin_right = 57.0
+margin_bottom = 416.0
+rect_min_size = Vector2( 0, 80 )
+text = "ODD"
+
+[node name="_19to36" type="Button" parent="VBoxContainer3"]
+modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_top = 420.0
+margin_right = 57.0
+margin_bottom = 500.5
+rect_min_size = Vector2( 0, 80.5 )
+text = "19ro36"
+
+[node name="apuesta1" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="apuesta2" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="apuesta3" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
