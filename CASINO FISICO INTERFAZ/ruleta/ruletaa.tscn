@@ -1,32 +1,37 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/fondo de ruleta.png" type="Texture" id=1]
 [ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/ruleta.png" type="Texture" id=2]
 [ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/ruletaa.gd" type="Script" id=3]
-[ext_resource path="res://BOTONES/rojo.png" type="Texture" id=4]
-[ext_resource path="res://BOTONES/negro.png" type="Texture" id=5]
-[ext_resource path="res://BOTONES/verde.png" type="Texture" id=6]
+[ext_resource path="res://ELEMENTOS/rojo.png" type="Texture" id=4]
+[ext_resource path="res://ELEMENTOS/negro.png" type="Texture" id=5]
+[ext_resource path="res://ELEMENTOS/verde.png" type="Texture" id=6]
+[ext_resource path="res://ELEMENTOS/flecha.png" type="Texture" id=7]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 128.0 ],
+"_edit_vertical_guides_": [ 210.0 ]
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 4 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="ruleta" type="Sprite" parent="."]
 position = Vector2( 209, 211 )
-rotation = 3.90081
+rotation = 3.9968
 texture = ExtResource( 2 )
 
-[node name="Button" type="Button" parent="."]
-anchor_left = 0.155273
-anchor_top = 0.02
-anchor_right = 0.246094
-anchor_bottom = 0.08
+[node name="apostar" type="Button" parent="."]
+anchor_left = 0.0175781
+anchor_top = 0.035
+anchor_right = 0.108399
+anchor_bottom = 0.095
 text = "que gire"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -40,7 +45,7 @@ margin_top = 15.0
 margin_right = -38.0
 margin_bottom = -2.0
 
-[node name="cero" type="Button" parent="VBoxContainer" groups=["apuesta"]]
+[node name="_0" type="Button" parent="VBoxContainer" groups=["apuesta"]]
 margin_right = 185.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 0, 20 )
@@ -54,34 +59,34 @@ margin_top = 41.0
 margin_right = 185.0
 margin_bottom = 79.0
 
-[node name="uno" type="Button" parent="VBoxContainer/fila1" groups=["apuesta"]]
+[node name="_1" type="Button" parent="VBoxContainer/fila1" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
 custom_constants/hseparation = -15
 text = "01"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="dos" type="Button" parent="VBoxContainer/fila1" groups=["apuesta"]]
+[node name="_2" type="Button" parent="VBoxContainer/fila1" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 custom_constants/hseparation = 0
 text = "02"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="tres" type="Button" parent="VBoxContainer/fila1" groups=["apuesta"]]
+[node name="_3" type="Button" parent="VBoxContainer/fila1" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "03"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
@@ -90,32 +95,32 @@ margin_top = 83.0
 margin_right = 185.0
 margin_bottom = 121.0
 
-[node name="cuatro" type="Button" parent="VBoxContainer/fila2" groups=["apuesta"]]
+[node name="_4" type="Button" parent="VBoxContainer/fila2" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
 text = "04"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="cinco" type="Button" parent="VBoxContainer/fila2" groups=["apuesta"]]
+[node name="_5" type="Button" parent="VBoxContainer/fila2" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "05"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="seis" type="Button" parent="VBoxContainer/fila2" groups=["apuesta"]]
+[node name="_6" type="Button" parent="VBoxContainer/fila2" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "06"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
@@ -124,32 +129,32 @@ margin_top = 125.0
 margin_right = 185.0
 margin_bottom = 163.0
 
-[node name="siete" type="Button" parent="VBoxContainer/fila3" groups=["apuesta"]]
+[node name="_7" type="Button" parent="VBoxContainer/fila3" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
 text = "07"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="ocho" type="Button" parent="VBoxContainer/fila3" groups=["apuesta"]]
+[node name="_8" type="Button" parent="VBoxContainer/fila3" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "08"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="nueve" type="Button" parent="VBoxContainer/fila3" groups=["apuesta"]]
+[node name="_9" type="Button" parent="VBoxContainer/fila3" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "09"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
@@ -158,32 +163,32 @@ margin_top = 167.0
 margin_right = 185.0
 margin_bottom = 205.0
 
-[node name="diez" type="Button" parent="VBoxContainer/fila4" groups=["apuesta"]]
+[node name="_10" type="Button" parent="VBoxContainer/fila4" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
 text = "10"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="once" type="Button" parent="VBoxContainer/fila4" groups=["apuesta"]]
+[node name="_11" type="Button" parent="VBoxContainer/fila4" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "11"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="doce" type="Button" parent="VBoxContainer/fila4" groups=["apuesta"]]
+[node name="_12" type="Button" parent="VBoxContainer/fila4" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "12"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
@@ -192,32 +197,32 @@ margin_top = 209.0
 margin_right = 185.0
 margin_bottom = 247.0
 
-[node name="trece" type="Button" parent="VBoxContainer/fila5" groups=["apuesta"]]
+[node name="_13" type="Button" parent="VBoxContainer/fila5" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
 text = "13"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="catorce" type="Button" parent="VBoxContainer/fila5" groups=["apuesta"]]
+[node name="_14" type="Button" parent="VBoxContainer/fila5" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "14"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="quince" type="Button" parent="VBoxContainer/fila5" groups=["apuesta"]]
+[node name="_15" type="Button" parent="VBoxContainer/fila5" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "15"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
@@ -226,32 +231,32 @@ margin_top = 251.0
 margin_right = 185.0
 margin_bottom = 289.0
 
-[node name="dieciseis" type="Button" parent="VBoxContainer/fila6" groups=["apuesta"]]
+[node name="_16" type="Button" parent="VBoxContainer/fila6" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
 text = "16"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="diecisiete" type="Button" parent="VBoxContainer/fila6" groups=["apuesta"]]
+[node name="_17" type="Button" parent="VBoxContainer/fila6" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "17"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="dieciocho" type="Button" parent="VBoxContainer/fila6" groups=["apuesta"]]
+[node name="_18" type="Button" parent="VBoxContainer/fila6" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "18"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
@@ -260,32 +265,32 @@ margin_top = 293.0
 margin_right = 185.0
 margin_bottom = 331.0
 
-[node name="diecinueve" type="Button" parent="VBoxContainer/fila7" groups=["apuesta"]]
+[node name="_19" type="Button" parent="VBoxContainer/fila7" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
 text = "19"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="veinte" type="Button" parent="VBoxContainer/fila7" groups=["apuesta"]]
+[node name="_20" type="Button" parent="VBoxContainer/fila7" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "20"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="veintiuno" type="Button" parent="VBoxContainer/fila7" groups=["apuesta"]]
+[node name="_21" type="Button" parent="VBoxContainer/fila7" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "21"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
@@ -294,32 +299,32 @@ margin_top = 335.0
 margin_right = 185.0
 margin_bottom = 373.0
 
-[node name="veintidos" type="Button" parent="VBoxContainer/fila8" groups=["apuesta"]]
+[node name="_22" type="Button" parent="VBoxContainer/fila8" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
 text = "22"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="veintitres" type="Button" parent="VBoxContainer/fila8" groups=["apuesta"]]
+[node name="_23" type="Button" parent="VBoxContainer/fila8" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "23"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="veinticuatro" type="Button" parent="VBoxContainer/fila8" groups=["apuesta"]]
+[node name="_24" type="Button" parent="VBoxContainer/fila8" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "24"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
@@ -328,32 +333,32 @@ margin_top = 377.0
 margin_right = 185.0
 margin_bottom = 415.0
 
-[node name="veinticinco" type="Button" parent="VBoxContainer/fila9" groups=["apuesta"]]
+[node name="_25" type="Button" parent="VBoxContainer/fila9" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
 text = "25"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="veintiseis" type="Button" parent="VBoxContainer/fila9" groups=["apuesta"]]
+[node name="_26" type="Button" parent="VBoxContainer/fila9" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "26"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="veintisiete" type="Button" parent="VBoxContainer/fila9" groups=["apuesta"]]
+[node name="_27" type="Button" parent="VBoxContainer/fila9" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "27"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
@@ -362,32 +367,32 @@ margin_top = 419.0
 margin_right = 185.0
 margin_bottom = 457.0
 
-[node name="veintiocho" type="Button" parent="VBoxContainer/fila10" groups=["apuesta"]]
+[node name="_28" type="Button" parent="VBoxContainer/fila10" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
 text = "28"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="veintinueve" type="Button" parent="VBoxContainer/fila10" groups=["apuesta"]]
+[node name="_29" type="Button" parent="VBoxContainer/fila10" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "29"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="treinta" type="Button" parent="VBoxContainer/fila10" groups=["apuesta"]]
+[node name="_30" type="Button" parent="VBoxContainer/fila10" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "30"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
@@ -396,32 +401,32 @@ margin_top = 461.0
 margin_right = 185.0
 margin_bottom = 499.0
 
-[node name="treintayuno" type="Button" parent="VBoxContainer/fila11" groups=["apuesta"]]
+[node name="_31" type="Button" parent="VBoxContainer/fila11" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
 text = "31"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="treintaydos" type="Button" parent="VBoxContainer/fila11" groups=["apuesta"]]
+[node name="_32" type="Button" parent="VBoxContainer/fila11" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "32"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="treintaytres" type="Button" parent="VBoxContainer/fila11" groups=["apuesta"]]
+[node name="_33" type="Button" parent="VBoxContainer/fila11" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "33"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
@@ -435,7 +440,7 @@ margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
 text = "34"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
@@ -445,7 +450,7 @@ margin_right = 122.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "35"
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
@@ -455,7 +460,7 @@ margin_right = 185.3
 margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "36"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
@@ -591,3 +596,9 @@ margin_bottom = 14.0
 [node name="apuesta3" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 210, 66 )
+texture = ExtResource( 7 )
+
+[connection signal="pressed" from="apostar" to="." method="_on_Button_pressed"]

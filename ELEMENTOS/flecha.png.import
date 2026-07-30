@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BOTON -.png-6dcfc5a91307a43bbe55761389279223.stex"
+path="res://.import/flecha.png-4b72a9a4061fa836a491661e0562ce46.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BOTONES/BOTON -.png"
-dest_files=[ "res://.import/BOTON -.png-6dcfc5a91307a43bbe55761389279223.stex" ]
+source_file="res://ELEMENTOS/flecha.png"
+dest_files=[ "res://.import/flecha.png-4b72a9a4061fa836a491661e0562ce46.stex" ]
 
 [params]
 

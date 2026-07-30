@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/negro.png-ebdf52c8617906ed97bdd61fe3228ab5.stex"
+path="res://.import/BOTON +.png-c5362d040d7ec67c97e550f82ebc0723.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BOTONES/negro.png"
-dest_files=[ "res://.import/negro.png-ebdf52c8617906ed97bdd61fe3228ab5.stex" ]
+source_file="res://ELEMENTOS/BOTON +.png"
+dest_files=[ "res://.import/BOTON +.png-c5362d040d7ec67c97e550f82ebc0723.stex" ]
 
 [params]
 
