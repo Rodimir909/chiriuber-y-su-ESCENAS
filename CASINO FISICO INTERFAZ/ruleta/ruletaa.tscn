@@ -11,10 +11,6 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 60.0, 360.0 ],
-"_edit_vertical_guides_": [ 60.0, 360.0, 202.0 ]
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 4 )
@@ -44,7 +40,7 @@ margin_top = 15.0
 margin_right = -38.0
 margin_bottom = -2.0
 
-[node name="cero" type="Button" parent="VBoxContainer"]
+[node name="cero" type="Button" parent="VBoxContainer" groups=["apuesta"]]
 margin_right = 185.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 0, 20 )
@@ -58,7 +54,7 @@ margin_top = 41.0
 margin_right = 185.0
 margin_bottom = 79.0
 
-[node name="uno" type="Button" parent="VBoxContainer/fila1"]
+[node name="uno" type="Button" parent="VBoxContainer/fila1" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -68,7 +64,7 @@ icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="dos" type="Button" parent="VBoxContainer/fila1"]
+[node name="dos" type="Button" parent="VBoxContainer/fila1" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -79,7 +75,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="tres" type="Button" parent="VBoxContainer/fila1"]
+[node name="tres" type="Button" parent="VBoxContainer/fila1" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -94,7 +90,7 @@ margin_top = 83.0
 margin_right = 185.0
 margin_bottom = 121.0
 
-[node name="cuatro" type="Button" parent="VBoxContainer/fila2"]
+[node name="cuatro" type="Button" parent="VBoxContainer/fila2" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -103,7 +99,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="cinco" type="Button" parent="VBoxContainer/fila2"]
+[node name="cinco" type="Button" parent="VBoxContainer/fila2" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -113,7 +109,7 @@ icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="seis" type="Button" parent="VBoxContainer/fila2"]
+[node name="seis" type="Button" parent="VBoxContainer/fila2" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -128,7 +124,7 @@ margin_top = 125.0
 margin_right = 185.0
 margin_bottom = 163.0
 
-[node name="siete" type="Button" parent="VBoxContainer/fila3"]
+[node name="siete" type="Button" parent="VBoxContainer/fila3" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -137,7 +133,7 @@ icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="ocho" type="Button" parent="VBoxContainer/fila3"]
+[node name="ocho" type="Button" parent="VBoxContainer/fila3" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -147,7 +143,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="nueve" type="Button" parent="VBoxContainer/fila3"]
+[node name="nueve" type="Button" parent="VBoxContainer/fila3" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -162,7 +158,7 @@ margin_top = 167.0
 margin_right = 185.0
 margin_bottom = 205.0
 
-[node name="diez" type="Button" parent="VBoxContainer/fila4"]
+[node name="diez" type="Button" parent="VBoxContainer/fila4" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -171,7 +167,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="once" type="Button" parent="VBoxContainer/fila4"]
+[node name="once" type="Button" parent="VBoxContainer/fila4" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -181,7 +177,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="doce" type="Button" parent="VBoxContainer/fila4"]
+[node name="doce" type="Button" parent="VBoxContainer/fila4" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -196,7 +192,7 @@ margin_top = 209.0
 margin_right = 185.0
 margin_bottom = 247.0
 
-[node name="trece" type="Button" parent="VBoxContainer/fila5"]
+[node name="trece" type="Button" parent="VBoxContainer/fila5" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -205,7 +201,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="catorce" type="Button" parent="VBoxContainer/fila5"]
+[node name="catorce" type="Button" parent="VBoxContainer/fila5" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -215,7 +211,7 @@ icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="quince" type="Button" parent="VBoxContainer/fila5"]
+[node name="quince" type="Button" parent="VBoxContainer/fila5" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -230,7 +226,7 @@ margin_top = 251.0
 margin_right = 185.0
 margin_bottom = 289.0
 
-[node name="dieciseis" type="Button" parent="VBoxContainer/fila6"]
+[node name="dieciseis" type="Button" parent="VBoxContainer/fila6" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -239,7 +235,7 @@ icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="diecisiete" type="Button" parent="VBoxContainer/fila6"]
+[node name="diecisiete" type="Button" parent="VBoxContainer/fila6" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -249,7 +245,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="dieciocho" type="Button" parent="VBoxContainer/fila6"]
+[node name="dieciocho" type="Button" parent="VBoxContainer/fila6" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -264,7 +260,7 @@ margin_top = 293.0
 margin_right = 185.0
 margin_bottom = 331.0
 
-[node name="diecinueve" type="Button" parent="VBoxContainer/fila7"]
+[node name="diecinueve" type="Button" parent="VBoxContainer/fila7" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -273,7 +269,7 @@ icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="veinte" type="Button" parent="VBoxContainer/fila7"]
+[node name="veinte" type="Button" parent="VBoxContainer/fila7" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -283,7 +279,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="veintiuno" type="Button" parent="VBoxContainer/fila7"]
+[node name="veintiuno" type="Button" parent="VBoxContainer/fila7" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -298,7 +294,7 @@ margin_top = 335.0
 margin_right = 185.0
 margin_bottom = 373.0
 
-[node name="veintidos" type="Button" parent="VBoxContainer/fila8"]
+[node name="veintidos" type="Button" parent="VBoxContainer/fila8" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -307,7 +303,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="veintitres" type="Button" parent="VBoxContainer/fila8"]
+[node name="veintitres" type="Button" parent="VBoxContainer/fila8" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -317,7 +313,7 @@ icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="veinticuatro" type="Button" parent="VBoxContainer/fila8"]
+[node name="veinticuatro" type="Button" parent="VBoxContainer/fila8" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -332,7 +328,7 @@ margin_top = 377.0
 margin_right = 185.0
 margin_bottom = 415.0
 
-[node name="veinticinco" type="Button" parent="VBoxContainer/fila9"]
+[node name="veinticinco" type="Button" parent="VBoxContainer/fila9" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -341,7 +337,7 @@ icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="veintiseis" type="Button" parent="VBoxContainer/fila9"]
+[node name="veintiseis" type="Button" parent="VBoxContainer/fila9" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -351,7 +347,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="veintisiete" type="Button" parent="VBoxContainer/fila9"]
+[node name="veintisiete" type="Button" parent="VBoxContainer/fila9" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -366,7 +362,7 @@ margin_top = 419.0
 margin_right = 185.0
 margin_bottom = 457.0
 
-[node name="veintiocho" type="Button" parent="VBoxContainer/fila10"]
+[node name="veintiocho" type="Button" parent="VBoxContainer/fila10" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -375,7 +371,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="veintinueve" type="Button" parent="VBoxContainer/fila10"]
+[node name="veintinueve" type="Button" parent="VBoxContainer/fila10" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -385,7 +381,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="treinta" type="Button" parent="VBoxContainer/fila10"]
+[node name="treinta" type="Button" parent="VBoxContainer/fila10" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -400,7 +396,7 @@ margin_top = 461.0
 margin_right = 185.0
 margin_bottom = 499.0
 
-[node name="treintayuno" type="Button" parent="VBoxContainer/fila11"]
+[node name="treintayuno" type="Button" parent="VBoxContainer/fila11" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -409,7 +405,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="treintaydos" type="Button" parent="VBoxContainer/fila11"]
+[node name="treintaydos" type="Button" parent="VBoxContainer/fila11" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -419,7 +415,7 @@ icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="treintaytres" type="Button" parent="VBoxContainer/fila11"]
+[node name="treintaytres" type="Button" parent="VBoxContainer/fila11" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -434,7 +430,7 @@ margin_top = 503.0
 margin_right = 185.0
 margin_bottom = 541.0
 
-[node name="treintaycuatro" type="Button" parent="VBoxContainer/fila12"]
+[node name="treintaycuatro" type="Button" parent="VBoxContainer/fila12" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -443,7 +439,7 @@ icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="treintaycinco" type="Button" parent="VBoxContainer/fila12"]
+[node name="treintaycinco" type="Button" parent="VBoxContainer/fila12" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -453,7 +449,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="treintayseis" type="Button" parent="VBoxContainer/fila12"]
+[node name="treintayseis" type="Button" parent="VBoxContainer/fila12" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -468,7 +464,7 @@ margin_top = 545.0
 margin_right = 185.0
 margin_bottom = 583.0
 
-[node name="columna1" type="Button" parent="VBoxContainer/fila13"]
+[node name="columna1" type="Button" parent="VBoxContainer/fila13" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_right = 59.3
 margin_bottom = 38.5
@@ -476,7 +472,7 @@ rect_min_size = Vector2( 59.3, 38.5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "1°"
 
-[node name="columna2" type="Button" parent="VBoxContainer/fila13"]
+[node name="columna2" type="Button" parent="VBoxContainer/fila13" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_left = 63.0
 margin_right = 122.3
@@ -484,7 +480,7 @@ margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "2°"
 
-[node name="columna3" type="Button" parent="VBoxContainer/fila13"]
+[node name="columna3" type="Button" parent="VBoxContainer/fila13" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_left = 126.0
 margin_right = 185.3
@@ -501,14 +497,14 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="_1st12" type="Button" parent="VBoxContainer2"]
+[node name="_1st12" type="Button" parent="VBoxContainer2" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_right = 52.0
 margin_bottom = 164.0
 rect_min_size = Vector2( 0, 164 )
 text = "1st12"
 
-[node name="_2nd12" type="Button" parent="VBoxContainer2"]
+[node name="_2nd12" type="Button" parent="VBoxContainer2" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_top = 168.0
 margin_right = 52.0
@@ -516,7 +512,7 @@ margin_bottom = 332.0
 rect_min_size = Vector2( 0, 164 )
 text = "2nd12"
 
-[node name="_3rd12" type="Button" parent="VBoxContainer2"]
+[node name="_3rd12" type="Button" parent="VBoxContainer2" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_top = 336.0
 margin_right = 52.0
@@ -532,14 +528,14 @@ margin_top = 56.0
 margin_right = -280.0
 margin_bottom = -44.0
 
-[node name="_1to18" type="Button" parent="VBoxContainer3"]
+[node name="_1to18" type="Button" parent="VBoxContainer3" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_right = 57.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 0, 80 )
 text = "1to18"
 
-[node name="Even" type="Button" parent="VBoxContainer3"]
+[node name="Even" type="Button" parent="VBoxContainer3" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_top = 84.0
 margin_right = 57.0
@@ -547,7 +543,7 @@ margin_bottom = 164.0
 rect_min_size = Vector2( 0, 80 )
 text = "EVEN"
 
-[node name="Red" type="Button" parent="VBoxContainer3"]
+[node name="Red" type="Button" parent="VBoxContainer3" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_top = 168.0
 margin_right = 57.0
@@ -557,7 +553,7 @@ text = "RED"
 icon = ExtResource( 4 )
 icon_align = 1
 
-[node name="Black" type="Button" parent="VBoxContainer3"]
+[node name="Black" type="Button" parent="VBoxContainer3" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_top = 252.0
 margin_right = 57.0
@@ -567,7 +563,7 @@ text = "BLACK"
 icon = ExtResource( 5 )
 icon_align = 1
 
-[node name="Odd" type="Button" parent="VBoxContainer3"]
+[node name="Odd" type="Button" parent="VBoxContainer3" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_top = 336.0
 margin_right = 57.0
@@ -575,7 +571,7 @@ margin_bottom = 416.0
 rect_min_size = Vector2( 0, 80 )
 text = "ODD"
 
-[node name="_19to36" type="Button" parent="VBoxContainer3"]
+[node name="_19to36" type="Button" parent="VBoxContainer3" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_top = 420.0
 margin_right = 57.0
@@ -586,6 +582,7 @@ text = "19ro36"
 [node name="apuesta1" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
+text = "x1"
 
 [node name="apuesta2" type="Label" parent="."]
 margin_right = 40.0
