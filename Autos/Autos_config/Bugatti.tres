@@ -1,12 +1,14 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Autos/DatosAuto.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Autos/gameassets/Bugatti_Aura_terminado.svg" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
 nombre = "Bugatti"
 textura_sprite = ExtResource( 2 )
+Color_CTRL = 0
+Cant_color = 0
 aceleracion = 700.0
 velocidad_max = 750.0
 frenado = 900.0
