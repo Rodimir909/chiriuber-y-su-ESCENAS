@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://mapa/mapitanuevo.svg" type="Texture" id=1]
 [ext_resource path="res://mapa/vereda.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://mapa/Mapa_3.gd" type="Script" id=7]
 [ext_resource path="res://mapa/mapa.png" type="Texture" id=8]
 [ext_resource path="res://Autos/Auto.tscn" type="PackedScene" id=9]
+[ext_resource path="res://PLAYER/playertscn.tscn" type="PackedScene" id=11]
+[ext_resource path="res://mapa/Mapa_3.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=5]
 0/name = "mapa.png 0"
@@ -231,6 +233,12 @@ points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
 [node name="Mapa 1" type="Node2D"]
 position = Vector2( 0, 1472 )
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_vertical_guides_": [ 6972.0 ]
+}
+
+[node name="Mapa 3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 128, 830 )
 
 [node name="pasto" type="TileMap" parent="."]
 position = Vector2( 8, -8 )
@@ -265,3 +273,6 @@ format = 1
 tile_data = PoolIntArray( 917556, 3, 0, 917557, 3, 0, 917558, 3, 0, 917559, 3, 0, 917560, 3, 0, 917561, 3, 0, 983092, 2, 0, 983093, 1, 0, 983094, 2, 0, 983095, 0, 0, 983096, 2, 0, 983097, 2, 0 )
 
 [node name="Auto" parent="." instance=ExtResource( 9 )]
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 11 )]
+position = Vector2( 26, 55 )
