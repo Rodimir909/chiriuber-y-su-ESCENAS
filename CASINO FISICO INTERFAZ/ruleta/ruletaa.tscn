@@ -591,15 +591,29 @@ margin_bottom = 14.0
 text = "x1"
 
 [node name="apuesta2" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+visible = false
+margin_left = 427.0
+margin_top = 295.0
+margin_right = 539.0
+margin_bottom = 309.0
+text = "x1"
 
 [node name="apuesta3" type="Label" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
+text = "x1"
 
-[node name="Sprite3" type="Sprite" parent="."]
+[node name="flecha" type="Sprite" parent="."]
 position = Vector2( 210, 66 )
 texture = ExtResource( 7 )
+
+[node name="limite" type="Label" parent="."]
+visible = false
+margin_left = 422.0
+margin_top = 310.0
+margin_right = 573.0
+margin_bottom = 324.0
+text = "No puedes apostar mas"
 
 [connection signal="pressed" from="apostar" to="." method="_on_Button_pressed"]
