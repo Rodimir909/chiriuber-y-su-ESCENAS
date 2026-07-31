@@ -56,14 +56,12 @@ func _ready():
 #----------------REPARTIR------------------------------------------------
 
 func _physics_process(delta):
-	print(apuesta)
 	$Label.text=str(GLOBAL.peso)
 	if apuesta>0:
 		$HBoxContainer/VBoxContainer2/repartir.disabled=false
 		
 	else:
 		$HBoxContainer/VBoxContainer2/repartir.disabled=true
-	print(GLOBAL.peso)
 	if losbool == true and veces < 400:
 		contador += 1
 		if contador == 100:

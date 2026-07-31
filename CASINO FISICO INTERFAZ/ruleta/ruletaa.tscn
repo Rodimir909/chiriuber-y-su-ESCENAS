@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/fondo de ruleta.png" type="Texture" id=1]
 [ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/ruleta.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://ELEMENTOS/negro.png" type="Texture" id=5]
 [ext_resource path="res://ELEMENTOS/verde.png" type="Texture" id=6]
 [ext_resource path="res://ELEMENTOS/flecha.png" type="Texture" id=7]
+[ext_resource path="res://ELEMENTOS/BOTON +.png" type="Texture" id=8]
+[ext_resource path="res://ELEMENTOS/BOTON -.png" type="Texture" id=9]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -18,7 +20,6 @@ __meta__ = {
 }
 
 [node name="fondo" type="Sprite" parent="."]
-position = Vector2( 0, 4 )
 texture = ExtResource( 1 )
 centered = false
 
@@ -28,11 +29,11 @@ rotation = 3.9968
 texture = ExtResource( 2 )
 
 [node name="apostar" type="Button" parent="."]
-anchor_left = 0.0175781
-anchor_top = 0.035
-anchor_right = 0.108399
-anchor_bottom = 0.095
-text = "que gire"
+anchor_left = 0.161133
+anchor_top = 0.836667
+anchor_right = 0.251954
+anchor_bottom = 0.896667
+text = "NO VA MAS"
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -41,9 +42,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 801.0
-margin_top = 15.0
+margin_top = 9.0
 margin_right = -38.0
-margin_bottom = -2.0
+margin_bottom = -8.0
 
 [node name="_0" type="Button" parent="VBoxContainer" groups=["apuesta"]]
 margin_right = 185.0
@@ -485,7 +486,7 @@ margin_bottom = 38.0
 rect_min_size = Vector2( 59.3, 0 )
 text = "2°"
 
-[node name="columna3" type="Button" parent="VBoxContainer/fila13" groups=["apuesta"]]
+[node name="columna0" type="Button" parent="VBoxContainer/fila13" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_left = 126.0
 margin_right = 185.3
@@ -498,18 +499,22 @@ anchor_left = 0.729492
 anchor_top = 0.0933333
 anchor_right = 0.780273
 anchor_bottom = 0.931667
+margin_left = -6.10352e-05
+margin_top = -6.0
+margin_right = 0.000183105
+margin_bottom = -6.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="_1st12" type="Button" parent="VBoxContainer2" groups=["apuesta"]]
+[node name="_0" type="Button" parent="VBoxContainer2" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_right = 52.0
 margin_bottom = 164.0
 rect_min_size = Vector2( 0, 164 )
 text = "1st12"
 
-[node name="_2nd12" type="Button" parent="VBoxContainer2" groups=["apuesta"]]
+[node name="_1" type="Button" parent="VBoxContainer2" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_top = 168.0
 margin_right = 52.0
@@ -517,7 +522,7 @@ margin_bottom = 332.0
 rect_min_size = Vector2( 0, 164 )
 text = "2nd12"
 
-[node name="_3rd12" type="Button" parent="VBoxContainer2" groups=["apuesta"]]
+[node name="_2" type="Button" parent="VBoxContainer2" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
 margin_top = 336.0
 margin_right = 52.0
@@ -529,9 +534,9 @@ text = "3rd12"
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 687.0
-margin_top = 56.0
+margin_top = 50.0
 margin_right = -280.0
-margin_bottom = -44.0
+margin_bottom = -50.0
 
 [node name="_1to18" type="Button" parent="VBoxContainer3" groups=["apuesta"]]
 modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
@@ -608,7 +613,7 @@ text = "x1"
 position = Vector2( 210, 66 )
 texture = ExtResource( 7 )
 
-[node name="limite" type="Label" parent="."]
+[node name="texto" type="Label" parent="."]
 visible = false
 margin_left = 422.0
 margin_top = 310.0
@@ -616,4 +621,52 @@ margin_right = 573.0
 margin_bottom = 324.0
 text = "No puedes apostar mas"
 
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+margin_left = 103.0
+margin_top = 391.0
+margin_right = 211.0
+margin_bottom = 441.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="apuestaaa" type="Label" parent="VBoxContainer4"]
+margin_right = 108.0
+margin_bottom = 14.0
+text = "APUESTA"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer4"]
+margin_top = 18.0
+margin_right = 108.0
+margin_bottom = 50.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="menos" type="Button" parent="VBoxContainer4/HBoxContainer"]
+margin_right = 28.0
+margin_bottom = 32.0
+icon = ExtResource( 9 )
+flat = true
+icon_align = 1
+
+[node name="apuesta" type="Label" parent="VBoxContainer4/HBoxContainer"]
+margin_left = 32.0
+margin_top = 9.0
+margin_right = 72.0
+margin_bottom = 23.0
+text = "$0000"
+
+[node name="mas" type="Button" parent="VBoxContainer4/HBoxContainer"]
+margin_left = 76.0
+margin_right = 108.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+icon = ExtResource( 8 )
+flat = true
+icon_align = 1
+
 [connection signal="pressed" from="apostar" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer4/HBoxContainer/menos" to="." method="_on_menos_pressed"]
+[connection signal="pressed" from="VBoxContainer4/HBoxContainer/mas" to="." method="_on_mas_pressed"]

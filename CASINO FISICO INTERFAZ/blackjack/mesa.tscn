@@ -8,7 +8,6 @@
 [ext_resource path="res://ELEMENTOS/BOTON +.png" type="Texture" id=6]
 [ext_resource path="res://CELULAR/NAVECITAS/varsity_regular.ttf" type="DynamicFontData" id=7]
 
-
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 272.604, 452.636, 0, 0, 0, 0, 750.6, 448.998 )
@@ -211,7 +210,7 @@ __meta__ = {
 margin_top = 65.0
 margin_right = 118.0
 margin_bottom = 79.0
-text = "ARRIESGUE"
+text = "APUESTA"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
