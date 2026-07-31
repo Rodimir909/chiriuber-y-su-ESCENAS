@@ -17,7 +17,7 @@ __meta__ = {
 "_edit_vertical_guides_": [ 210.0 ]
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="fondo" type="Sprite" parent="."]
 position = Vector2( 0, 4 )
 texture = ExtResource( 1 )
 centered = false
@@ -435,7 +435,7 @@ margin_top = 503.0
 margin_right = 185.0
 margin_bottom = 541.0
 
-[node name="treintaycuatro" type="Button" parent="VBoxContainer/fila12" groups=["apuesta"]]
+[node name="_34" type="Button" parent="VBoxContainer/fila12" groups=["apuesta"]]
 margin_right = 59.3
 margin_bottom = 38.5
 rect_min_size = Vector2( 59.3, 38.5 )
@@ -444,7 +444,7 @@ icon = ExtResource( 5 )
 flat = true
 icon_align = 1
 
-[node name="treintaycinco" type="Button" parent="VBoxContainer/fila12" groups=["apuesta"]]
+[node name="_35" type="Button" parent="VBoxContainer/fila12" groups=["apuesta"]]
 margin_left = 63.0
 margin_right = 122.3
 margin_bottom = 38.0
@@ -454,7 +454,7 @@ icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="treintayseis" type="Button" parent="VBoxContainer/fila12" groups=["apuesta"]]
+[node name="_36" type="Button" parent="VBoxContainer/fila12" groups=["apuesta"]]
 margin_left = 126.0
 margin_right = 185.3
 margin_bottom = 38.0
@@ -585,6 +585,7 @@ rect_min_size = Vector2( 0, 80.5 )
 text = "19ro36"
 
 [node name="apuesta1" type="Label" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 text = "x1"
