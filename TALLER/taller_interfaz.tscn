@@ -17,7 +17,7 @@ scale = Vector2( 1.11483, 0.664274 )
 texture = ExtResource( 1 )
 
 [node name="Auto" parent="." instance=ExtResource( 4 )]
-position = Vector2( 681, 417 )
+position = Vector2( 516, 362 )
 rotation = 1.5708
 scale = Vector2( 3, 3 )
 
