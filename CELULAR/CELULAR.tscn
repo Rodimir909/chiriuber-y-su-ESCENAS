@@ -135,6 +135,11 @@ margin_bottom = 70.0
 icon = ExtResource( 6 )
 flat = true
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/WASP" to="." method="_on_WASP_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/DIUB" to="." method="_on_DIUB_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/SPIFY" to="." method="_on_SPIFY_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/NERMARKET" to="." method="_on_NERMARKET_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/NAVECITA" to="." method="_on_NAVECITA_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/CASINO" to="." method="_on_CASINO_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/TRAEYO" to="." method="_on_TRAEYO_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/MISIONES" to="." method="_on_MISIONES_pressed"]

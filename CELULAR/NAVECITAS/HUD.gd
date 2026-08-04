@@ -11,8 +11,9 @@ func _physics_process(delta):
 	
 func _input(event):
 	if event.is_action_pressed("ui_home"):
-		$VBoxContainer.visible=true
-		get_tree().paused = true
+		if $gameover.visible==false:
+			$VBoxContainer.visible=true
+			get_tree().paused = true
 
 
 func _on_navecita_tree_exited():
