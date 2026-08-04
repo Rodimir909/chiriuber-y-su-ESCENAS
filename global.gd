@@ -13,8 +13,8 @@ var N: int = -1
 onready var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 onready var stamina : float = 100
-onready var hambre : int = 5
-onready var sed : int = 5
+onready var hambre = 6
+onready var sed  = 6
 
 onready var peso:float=900
 

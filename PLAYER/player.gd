@@ -21,12 +21,15 @@ func _physics_process(delta):
 		pass
 	if SPEED==200 and GLOBAL.stamina>0:
 		GLOBAL.stamina-=1
+		GLOBAL.sed-=0.001
+		GLOBAL.hambre-=0.0001
 	elif SPEED==100 and GLOBAL.stamina<100:
 		GLOBAL.stamina+=0.3
 	elif GLOBAL.stamina<=0:
 		SPEED=101
 		$AnimatedSprite.speed_scale=1
-	print(GLOBAL.stamina)
+	GLOBAL.sed-=0.0001
+	GLOBAL.hambre-=0.00001
 func get_axis()->Vector2:
 	var axis = Vector2.ZERO
 	axis.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
