@@ -57,8 +57,6 @@ func motion_ctrl():
 		motion = Vector2.ZERO
 	else:
 		motion = get_axis().normalized()*SPEED
-	position.x = clamp(position.x, 0+8, screensize.x-8)
-	position.y = clamp(position.y, 0+12, screensize.y-10)
 
 	
 func _input(event):
