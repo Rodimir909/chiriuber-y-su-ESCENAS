@@ -4,7 +4,7 @@ extends KinematicBody2D
 onready var  SPEED = 100 #velociad de la nave
 onready var motion = Vector2.ZERO #para que se mueva en vector x y
 onready var screensize = get_viewport_rect().size #saber el tamaño de la pantalla
-onready var stamina : int = 100
+
 
 var is_on_car = false
 var can_down = false
@@ -19,14 +19,14 @@ func _physics_process(delta):
 		motion = move_and_collide(motion* delta)
 	else:
 		pass
-	if SPEED==200 and stamina>0:
-		stamina-=1
-	elif SPEED==100 and stamina<100:
-		stamina+=1
-	elif stamina==0:
+	if SPEED==200 and GLOBAL.stamina>0:
+		GLOBAL.stamina-=1
+	elif SPEED==100 and GLOBAL.stamina<100:
+		GLOBAL.stamina+=0.3
+	elif GLOBAL.stamina<=0:
 		SPEED=101
 		$AnimatedSprite.speed_scale=1
-	print(stamina)
+	print(GLOBAL.stamina)
 func get_axis()->Vector2:
 	var axis = Vector2.ZERO
 	axis.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
@@ -70,7 +70,7 @@ func motion_ctrl():
 	
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
-		if stamina>1:
+		if GLOBAL.stamina>1:
 			$AnimatedSprite.speed_scale=2
 			SPEED=200
 	if event.is_action_released("ui_accept"):

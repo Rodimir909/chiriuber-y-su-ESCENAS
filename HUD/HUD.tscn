@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://HUD/BillyMoney-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://HUD.gd" type="Script" id=2]
+[ext_resource path="res://HUD/HUD.gd" type="Script" id=2]
 [ext_resource path="res://HUD/HUD de hambre, correr y sed/progress hambre.png" type="Texture" id=3]
 [ext_resource path="res://HUD/HUD de hambre, correr y sed/under hambre.png" type="Texture" id=4]
 [ext_resource path="res://HUD/HUD de hambre, correr y sed/under stamina.png" type="Texture" id=5]
@@ -30,6 +30,7 @@ alignment = 1
 [node name="hambre" type="TextureProgress" parent="VBoxContainer"]
 margin_right = 162.0
 margin_bottom = 18.0
+max_value = 5.0
 texture_over = ExtResource( 4 )
 texture_progress = ExtResource( 3 )
 
@@ -37,6 +38,7 @@ texture_progress = ExtResource( 3 )
 margin_top = 22.0
 margin_right = 162.0
 margin_bottom = 40.0
+max_value = 5.0
 texture_over = ExtResource( 7 )
 texture_progress = ExtResource( 8 )
 
