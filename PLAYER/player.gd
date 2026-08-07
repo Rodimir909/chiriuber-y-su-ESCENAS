@@ -22,14 +22,14 @@ func _physics_process(delta):
 	if SPEED==200 and GLOBAL.stamina>0:
 		GLOBAL.stamina-=1
 		GLOBAL.sed-=0.001
-		GLOBAL.hambre-=0.0001
+		GLOBAL.hambre-=0.0005
 	elif SPEED==100 and GLOBAL.stamina<100:
 		GLOBAL.stamina+=0.3
 	elif GLOBAL.stamina<=0:
 		SPEED=101
 		$AnimatedSprite.speed_scale=1
 	GLOBAL.sed-=0.0001
-	GLOBAL.hambre-=0.00001
+	GLOBAL.hambre-=0.0001
 func get_axis()->Vector2:
 	var axis = Vector2.ZERO
 	axis.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
@@ -40,10 +40,10 @@ func get_axis()->Vector2:
 		$AnimatedSprite.rotation_degrees=-45
 	elif axis.x==-1 and axis.y==1:
 		$AnimatedSprite.play("CAMINAR")
-		$AnimatedSprite.rotation_degrees=-135
+		$AnimatedSprite.rotation_degrees=45
 	elif axis.x==1 and axis.y==-1:
 		$AnimatedSprite.play("CAMINAR")
-		$AnimatedSprite.rotation_degrees=-315
+		$AnimatedSprite.rotation_degrees=-135
 	elif axis.x==-1 and axis.y==-1:
 		$AnimatedSprite.play("CAMINAR")
 		$AnimatedSprite.rotation_degrees=-225
