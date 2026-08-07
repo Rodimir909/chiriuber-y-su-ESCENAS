@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pared.jpg-a573aa2f602c06a97dfb209a59609889.stex"
+path="res://.import/CASINO FISICO.png-8ec1942f8b2c3ed2f59e8a5a4eb49a94.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mapa/cosas para probar/pared.jpg"
-dest_files=[ "res://.import/pared.jpg-a573aa2f602c06a97dfb209a59609889.stex" ]
+source_file="res://CASINO FISICO INTERFAZ/CASINO FISICO.png"
+dest_files=[ "res://.import/CASINO FISICO.png-8ec1942f8b2c3ed2f59e8a5a4eb49a94.stex" ]
 
 [params]
 

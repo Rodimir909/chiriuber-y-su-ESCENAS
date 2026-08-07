@@ -3,6 +3,10 @@ extends Node
 onready var score : int
 onready var time = true
 
+var posiccion: Vector2
+
+var daa: Vector2=Vector2(478,525)
+
 var cartasus = []
 var puntosdelus: int = 0
 var cartaspc = []

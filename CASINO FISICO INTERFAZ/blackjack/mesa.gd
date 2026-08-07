@@ -20,7 +20,10 @@ var veces: int = 0
 
 var la_carta_oculta_de_la_pc = null
 
-
+func _input(event):
+	if event.is_action_pressed("ui_home"):
+		get_tree().change_scene("res://CASINO FISICO INTERFAZ/casino fisico.tscn")
+		
 func cartas_pc(ocultar_esta: bool = false):
 	lugarpc += 20
 	var nueva_carta = carta.instance()
@@ -56,7 +59,6 @@ func _ready():
 #----------------REPARTIR------------------------------------------------
 
 func _physics_process(delta):
-	$Label.text=str(GLOBAL.peso)
 	if apuesta>0:
 		$HBoxContainer/VBoxContainer2/repartir.disabled=false
 		

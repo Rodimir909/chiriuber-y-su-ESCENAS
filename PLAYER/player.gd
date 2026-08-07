@@ -13,6 +13,10 @@ signal down
 func _ready():
 	$AnimatedSprite.play("IDLE")
 	
+func posicion():
+	GLOBAL.posiccion=self.global_position + Vector2(0, 25)
+func ca():
+	GLOBAL.daa=self.global_position + Vector2(0, 25)
 func _physics_process(delta):
 	if not is_on_car:
 		motion_ctrl()
@@ -30,6 +34,7 @@ func _physics_process(delta):
 		$AnimatedSprite.speed_scale=1
 	GLOBAL.sed-=0.0001
 	GLOBAL.hambre-=0.0001
+	
 func get_axis()->Vector2:
 	var axis = Vector2.ZERO
 	axis.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))

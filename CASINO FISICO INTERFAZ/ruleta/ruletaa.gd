@@ -32,6 +32,10 @@ var compro : bool
 
 var apuesta:int
 
+func _input(event):
+	if event.is_action_pressed("ui_home"):
+		get_tree().change_scene("res://CASINO FISICO INTERFAZ/casino fisico.tscn")
+
 func analizar():
 	for i in range(boton.size()):
 		if (boton[i].name).replace("_", "")==str(alea):
