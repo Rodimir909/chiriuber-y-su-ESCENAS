@@ -111,12 +111,15 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("player"):
 		canup = false
-		
-func _input(event):
-	if event.is_action_pressed("accion") and canup:
+
+func subir_Ctrl():
 		$Camera2D.current = true
 		is_player_on = true
 		emit_signal("up")
+	
+func _input(event):
+	if event.is_action_pressed("accion") and canup:
+		subir_Ctrl()
 
 func _on_KinematicBody2D_down():
 	$Camera2D.current = false
@@ -126,3 +129,7 @@ func _on_KinematicBody2D_down():
 func _on_taller_interfaz_taller():
 	is_player_on = false
 	canup = false
+
+	
+func _on_Node2D_taler():
+	subir_Ctrl()

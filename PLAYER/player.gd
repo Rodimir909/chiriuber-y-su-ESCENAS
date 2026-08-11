@@ -84,21 +84,29 @@ func _input(event):
 	if event.is_action_released("ui_accept"):
 		SPEED=100
 		$AnimatedSprite.speed_scale=1
-	if event.is_action_pressed("accion") and can_down:
+	if event.is_action_pressed("accion") :
 		bajar()
    
 func bajar():
-	$Camera2D.current = true
-	is_on_car = false
-	$AnimatedSprite.visible = true
-	$CollisionShape2D.disabled = false
-	can_down = false
-	emit_signal("down")
+	if is_on_car:
+		$Camera2D.current = true
+		is_on_car = false
+		$AnimatedSprite.visible = true
+		$CollisionShape2D.disabled = false
+		can_down = false
+		emit_signal("down")
 
 
 func _on_Auto_up():
-	$Camera2D.current = false 
-	is_on_car = true
-	$AnimatedSprite.visible = false
+	$Camera2D.current = false
 	$CollisionShape2D.disabled = true
-	can_down = true
+	$AnimatedSprite.visible = false
+	$Timer.start()
+
+
+
+func _on_Timer_timeout():
+	is_on_car=true
+
+
+
