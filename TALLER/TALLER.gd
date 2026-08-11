@@ -16,9 +16,9 @@ func _physics_process(delta):
 	precio_ctrl()
 
 func _input(event):
-	if event.is_action_pressed("accion"):
-		get_tree().change_scene("res://mapa.tscn")
+	if event.is_action_pressed("salir"):
 		emit_signal("outaller")
+		get_tree().change_scene("res://mapa/Mundo_Completo.tscn")
 		
 
 func _ready():
@@ -42,3 +42,6 @@ func _on_Color_pressed():
 func _on_Color1_pressed():
 	$Auto.VColor -=1
 	$Auto/Sprite.frame -= 1
+
+
+

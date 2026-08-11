@@ -1,5 +1,7 @@
 extends Node
 
+var pos
+
 onready var score : int
 onready var time = true
 
