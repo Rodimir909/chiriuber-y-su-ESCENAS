@@ -6,6 +6,7 @@ onready var motion = Vector2.ZERO #para que se mueva en vector x y
 onready var screensize = get_viewport_rect().size #saber el tamaño de la pantalla
 
 
+
 var is_on_car = false
 var can_down = false
 signal down
@@ -86,7 +87,11 @@ func _input(event):
 		$AnimatedSprite.speed_scale=1
 	if event.is_action_pressed("accion") :
 		bajar()
-   
+	if event.is_action_pressed("celu"):
+		if not $Control.visible:
+			$Control.visible = true
+		else:
+			$Control.visible = false
 func bajar():
 	if is_on_car:
 		$Camera2D.current = true

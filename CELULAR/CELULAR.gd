@@ -1,9 +1,15 @@
-extends Control
+extends CanvasLayer
 
-
+func _input(event):
+	if event.is_action_pressed("ui_home"):
+		if $Control/TextureRect/APPS.visible:
+			$Control/TextureRect/APPS.visible=false
+			if $Control/TextureRect/APPS/Cas:
+				$Control/TextureRect/APPS/Cas.visible = false
 
 func _on_CASINO_pressed():
-	get_tree().change_scene("res://CELULAR/CASINO/casinitopro.tscn")
+	$Control/TextureRect/APPS.visible = true
+	$Control/TextureRect/APPS/Cas.visible = true
 
 
 func _on_NAVECITA_pressed():
@@ -33,3 +39,5 @@ func _on_DIUB_pressed():
 
 func _on_WASP_pressed():
 	get_tree().change_scene("res://CELULAR/WASP/WASP.tscn")
+
+

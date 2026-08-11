@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://PLAYER/player.gd" type="Script" id=1]
 [ext_resource path="res://PLAYER/Personaje terminado_pro.svg" type="Texture" id=2]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CELULAR/CELULAR.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AtlasTexture" id=24]
 flags = 4
@@ -76,5 +77,8 @@ zoom = Vector2( 0.3, 0.3 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Control" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

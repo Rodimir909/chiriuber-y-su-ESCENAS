@@ -1,5 +1,6 @@
 extends Node2D
 
+export (PackedScene) var CELU
 signal taler
 
 func _ready():
@@ -13,6 +14,9 @@ func _ready():
 		$Auto.rotate(deg2rad(90))
 		GLOBAL.pos = ""
 
+
+   
+
 func _on_puerta_body_entered(body):
 	
 	if body.is_in_group("player"):
@@ -20,7 +24,6 @@ func _on_puerta_body_entered(body):
 		get_tree().change_scene("res://CASINO FISICO INTERFAZ/casino fisico.tscn")
 
 func _on_KinematicBody2D_down():
-
 	$KinematicBody2D.position = $Auto.position
 
 

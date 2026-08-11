@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://CELULAR/CELUS/iFone(CHIRIUBER).png" type="Texture" id=1]
 [ext_resource path="res://CELULAR/APP/DIUB.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://CELULAR/APP/WASP.png" type="Texture" id=10]
 [ext_resource path="res://CELULAR/APP/MAP.png" type="Texture" id=11]
 [ext_resource path="res://CELULAR/CELULAR.gd" type="Script" id=12]
+[ext_resource path="res://CELULAR/TRAEYO/TRAEYO.tscn" type="PackedScene" id=13]
+[ext_resource path="res://CELULAR/CASINO/casinitopro.tscn" type="PackedScene" id=14]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -36,110 +38,144 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Control" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Control" type="CanvasLayer"]
 script = ExtResource( 12 )
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
+margin_left = 492.0
 margin_top = 300.0
+margin_right = 492.0
+margin_bottom = 260.0
 alignment = 1
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="VBoxContainer2"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Control/VBoxContainer2"]
 scale = Vector2( 2.15, 2.15 )
 frames = SubResource( 2 )
 animation = "SAMSANG"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="Control"]
+anchor_left = 9.725
+anchor_top = 2.425
+anchor_right = 15.8434
+anchor_bottom = 12.8232
+margin_right = -229.736
+margin_bottom = -383.929
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -118.0
-margin_top = 100.0
-margin_right = 118.0
+margin_left = -7.19355
+margin_top = 0.230809
+margin_right = 228.806
+margin_bottom = 186.231
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/TextureRect/VBoxContainer"]
 margin_right = 236.0
 margin_bottom = 70.0
 
-[node name="WASP" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="WASP" type="Button" parent="Control/TextureRect/VBoxContainer/HBoxContainer"]
 margin_right = 76.0
 margin_bottom = 70.0
 icon = ExtResource( 10 )
 flat = true
 
-[node name="MAP" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="MAP" type="Button" parent="Control/TextureRect/VBoxContainer/HBoxContainer"]
 margin_left = 80.0
 margin_right = 156.0
 margin_bottom = 70.0
 icon = ExtResource( 11 )
 flat = true
 
-[node name="DIUB" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="DIUB" type="Button" parent="Control/TextureRect/VBoxContainer/HBoxContainer"]
 margin_left = 160.0
 margin_right = 236.0
 margin_bottom = 70.0
 icon = ExtResource( 2 )
 flat = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/TextureRect/VBoxContainer"]
 margin_top = 74.0
 margin_right = 236.0
 margin_bottom = 144.0
 
-[node name="SPIFY" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="SPIFY" type="Button" parent="Control/TextureRect/VBoxContainer/HBoxContainer2"]
 margin_right = 76.0
 margin_bottom = 70.0
 icon = ExtResource( 3 )
 flat = true
 
-[node name="NERMARKET" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="NERMARKET" type="Button" parent="Control/TextureRect/VBoxContainer/HBoxContainer2"]
 margin_left = 80.0
 margin_right = 156.0
 margin_bottom = 70.0
 icon = ExtResource( 9 )
 flat = true
 
-[node name="NAVECITA" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="NAVECITA" type="Button" parent="Control/TextureRect/VBoxContainer/HBoxContainer2"]
 margin_left = 160.0
 margin_right = 236.0
 margin_bottom = 70.0
 icon = ExtResource( 4 )
 flat = true
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/TextureRect/VBoxContainer"]
 margin_top = 148.0
 margin_right = 236.0
 margin_bottom = 218.0
 
-[node name="CASINO" type="Button" parent="VBoxContainer/HBoxContainer3"]
+[node name="CASINO" type="Button" parent="Control/TextureRect/VBoxContainer/HBoxContainer3"]
 margin_right = 76.0
 margin_bottom = 70.0
 icon = ExtResource( 5 )
 flat = true
 
-[node name="TRAEYO" type="Button" parent="VBoxContainer/HBoxContainer3"]
+[node name="TRAEYO" type="Button" parent="Control/TextureRect/VBoxContainer/HBoxContainer3"]
 margin_left = 80.0
 margin_right = 156.0
 margin_bottom = 70.0
 icon = ExtResource( 8 )
 flat = true
 
-[node name="MISIONES" type="Button" parent="VBoxContainer/HBoxContainer3"]
+[node name="MISIONES" type="Button" parent="Control/TextureRect/VBoxContainer/HBoxContainer3"]
 margin_left = 160.0
 margin_right = 236.0
 margin_bottom = 70.0
 icon = ExtResource( 6 )
 flat = true
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/WASP" to="." method="_on_WASP_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/DIUB" to="." method="_on_DIUB_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/SPIFY" to="." method="_on_SPIFY_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/NERMARKET" to="." method="_on_NERMARKET_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/NAVECITA" to="." method="_on_NAVECITA_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer3/CASINO" to="." method="_on_CASINO_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer3/TRAEYO" to="." method="_on_TRAEYO_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer3/MISIONES" to="." method="_on_MISIONES_pressed"]
+[node name="APPS" type="Control" parent="Control/TextureRect"]
+visible = false
+anchor_right = 16.4733
+anchor_bottom = 12.8844
+margin_right = 105.9
+margin_bottom = 176.7
+rect_scale = Vector2( 0.7, 0.7 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Tra" parent="Control/TextureRect/APPS" instance=ExtResource( 13 )]
+visible = false
+
+[node name="Cas" parent="Control/TextureRect/APPS" instance=ExtResource( 14 )]
+visible = false
+
+[connection signal="pressed" from="Control/TextureRect/VBoxContainer/HBoxContainer/WASP" to="." method="_on_WASP_pressed"]
+[connection signal="pressed" from="Control/TextureRect/VBoxContainer/HBoxContainer/DIUB" to="." method="_on_DIUB_pressed"]
+[connection signal="pressed" from="Control/TextureRect/VBoxContainer/HBoxContainer2/SPIFY" to="." method="_on_SPIFY_pressed"]
+[connection signal="pressed" from="Control/TextureRect/VBoxContainer/HBoxContainer2/NERMARKET" to="." method="_on_NERMARKET_pressed"]
+[connection signal="pressed" from="Control/TextureRect/VBoxContainer/HBoxContainer2/NAVECITA" to="." method="_on_NAVECITA_pressed"]
+[connection signal="pressed" from="Control/TextureRect/VBoxContainer/HBoxContainer3/CASINO" to="." method="_on_CASINO_pressed"]
+[connection signal="pressed" from="Control/TextureRect/VBoxContainer/HBoxContainer3/TRAEYO" to="." method="_on_TRAEYO_pressed"]
+[connection signal="pressed" from="Control/TextureRect/VBoxContainer/HBoxContainer3/MISIONES" to="." method="_on_MISIONES_pressed"]

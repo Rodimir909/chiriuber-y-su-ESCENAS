@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="chiriuber y su ESCENAS (TRABAJA ACA PAJERO)"
+run/main_scene="res://Interfaz de Inicio/interfazdeinicio.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -129,6 +130,11 @@ accion={
 salir={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":81,"unicode":0,"echo":false,"script":null)
+ ]
+}
+celu={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777218,"unicode":0,"echo":false,"script":null)
  ]
 }
 

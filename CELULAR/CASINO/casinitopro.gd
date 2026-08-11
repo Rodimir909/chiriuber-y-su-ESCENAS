@@ -17,7 +17,7 @@ func _physics_process(delta):
 			$AnimatedSprite2.playing=true
 			$AnimatedSprite3.playing=true
 		contador+=1
-		print(contador)
+
 		if contador==200:
 			$AnimatedSprite.playing=false
 		if contador==300:
@@ -28,10 +28,6 @@ func _physics_process(delta):
 			contador=0
 			$Button.disabled=false
 		c=0
-
-func _input(event):
-	if event.is_action_pressed("ui_home"):
-		get_tree().change_scene("res://CELULAR/CELULAR.tscn")
 
 func _on_Button_pressed():
 	ppp=true
