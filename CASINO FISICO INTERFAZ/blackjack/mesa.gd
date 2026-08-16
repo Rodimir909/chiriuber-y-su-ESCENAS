@@ -23,7 +23,7 @@ var la_carta_oculta_de_la_pc = null
 func _input(event):
 	if event.is_action_pressed("ui_home"):
 		get_tree().change_scene("res://CASINO FISICO INTERFAZ/casino fisico.tscn")
-		
+
 func cartas_pc(ocultar_esta: bool = false):
 	lugarpc += 20
 	var nueva_carta = carta.instance()
@@ -53,22 +53,19 @@ func _ready():
 		apuesta=100
 	else:
 		apuesta=GLOBAL.peso
-	$VBoxContainer/HBoxContainer/apuesta.text=str(apuesta)
-	
+	$VBoxContainer/HBoxContainer/apuesta.text=str("$", apuesta)
+	if apuesta>0:
+		$HBoxContainer/VBoxContainer2/repartir.disabled=false
+	else:
+		$HBoxContainer/VBoxContainer2/repartir.disabled=true
 
 #----------------REPARTIR------------------------------------------------
 
 func _physics_process(delta):
-	if apuesta>0:
-		$HBoxContainer/VBoxContainer2/repartir.disabled=false
-		
-	else:
-		$HBoxContainer/VBoxContainer2/repartir.disabled=true
-	if losbool == true and veces < 400:
+	if losbool == true and veces < 4:
 		contador += 1
 		if contador == 100:
 			$HBoxContainer2/AnimatedSprite.play("default")
-			
 			if u == true:
 				e = true
 				u = false
@@ -77,8 +74,13 @@ func _physics_process(delta):
 				$HBoxContainer2/AnimatedSprite.frame = 0
 				
 				var valor_carta = (GLOBAL.cartasus[quemaneradevercontadoreus] % 13) + 1
-				if valor_carta > 10: valor_carta = 10
+				if valor_carta > 10: 
+					valor_carta = 10
+				if valor_carta == 1:
+					valor_carta = 11
 				GLOBAL.puntosdelus += valor_carta
+				if GLOBAL.puntosdelus > 21 and valor_carta == 11:
+					GLOBAL.puntosdelus -= 10
 				$puntosus.text = str(GLOBAL.puntosdelus)
 				
 			elif e == true:
@@ -93,20 +95,23 @@ func _physics_process(delta):
 					
 				$HBoxContainer2/AnimatedSprite.frame = 0
 				
-				var valor_carta = (GLOBAL.cartaspc[quemaneradevercontadorepc] % 13) + 1
-				if valor_carta > 10: valor_carta = 10
+				var valor_carta = (GLOBAL.cartaspc[quemaneradevercontadoreus] % 13) + 1
+				if valor_carta > 10: 
+					valor_carta = 10
+				if valor_carta == 1:
+					valor_carta = 11
 				GLOBAL.puntosdelpc += valor_carta
+				if GLOBAL.puntosdelpc > 21 and valor_carta == 11:
+					GLOBAL.puntosdelpc -= 10
+				$puntosus.text = str(GLOBAL.puntosdelus)
 				$puntospc.text = str("?")
 				
 			contador = 0
 
-		veces += 1
+			veces += 1
 	
-	if veces >= 400 and losbool == true:
+	if veces >= 4 and losbool == true:
 		losbool = false
-
-		if GLOBAL.puntosdelus == 21:
-			_on_plantarse_pressed()
 
 
 
@@ -114,11 +119,11 @@ func _on_repartir_pressed():
 	$ganaste.visible=false
 	$perdiste.visible=false
 	$empataste.visible=false
+	
 	GLOBAL.peso-=apuesta
 	var cartas_viejas = get_tree().get_nodes_in_group("cartas_juego")
 	for c in cartas_viejas:
 		c.queue_free()
-		
 	GLOBAL.cartasus.clear()
 	GLOBAL.cartaspc.clear()
 	GLOBAL.puntosdelus = 0
@@ -154,17 +159,19 @@ func _on_repartir_pressed():
 	
 	losbool = true
 	
-	yield(get_tree().create_timer(4.1), "timeout")
-	if GLOBAL.puntosdelus < 21: # Si no hizo blackjack directo
+	yield(get_tree().create_timer(7), "timeout")
+	if GLOBAL.puntosdelus < 21 and GLOBAL.puntosdelpc < 21: # Si no hizo blackjack directo
 		$HBoxContainer/VBoxContainer/pedir.disabled = false
 		$HBoxContainer/VBoxContainer/plantarse.disabled = false
-		$HBoxContainer/VBoxContainer2/doblar.disabled = false
+		if GLOBAL.peso>=apuesta:
+			$HBoxContainer/VBoxContainer2/doblar.disabled = false
+	else:
+		_on_plantarse_pressed()
 
 
 func _on_pedir_pressed():
 
 	$HBoxContainer/VBoxContainer2/doblar.disabled = true
-	
 	var numero_random = GLOBAL.random(0, 51)
 	while (numero_random in GLOBAL.cartasus) or (numero_random in GLOBAL.cartaspc):
 		numero_random = GLOBAL.random(0, 51)
@@ -185,7 +192,7 @@ func _on_pedir_pressed():
 func _on_doblar_pressed():
 	# [LOGICA MONETARIA]: Tu_Variable_Dinero -= Apuesta_Actual (Duplicás el pozo)
 	
-
+	GLOBAL.peso-=apuesta
 	var numero_random = GLOBAL.random(0, 51)
 	while (numero_random in GLOBAL.cartasus) or (numero_random in GLOBAL.cartaspc):
 		numero_random = GLOBAL.random(0, 51)
@@ -212,8 +219,8 @@ func _on_plantarse_pressed():
 	$puntospc.text = str(GLOBAL.puntosdelpc)
 	
 # --------------------------CRUPIER ---------------------------------------------------
-	if GLOBAL.puntosdelus <= 21:
-		while GLOBAL.puntosdelpc < 17:
+	if GLOBAL.puntosdelus < 21:
+		while GLOBAL.puntosdelpc < 17 and GLOBAL.puntosdelpc !=21:
 			yield(get_tree().create_timer(0.8), "timeout") # Pausa dramática entre cartas de la PC
 			
 			var numero_random = GLOBAL.random(0, 51)
@@ -228,6 +235,8 @@ func _on_plantarse_pressed():
 			if valor_carta > 10: valor_carta = 10
 			GLOBAL.puntosdelpc += valor_carta
 			$puntospc.text = str(GLOBAL.puntosdelpc)
+	elif GLOBAL.puntosdelus==21:
+		pass
 			
 	# Esperamos un cachito final y definimos al ganador
 	yield(get_tree().create_timer(0.5), "timeout")
@@ -239,25 +248,20 @@ func comprobar_ganador():
 	var u_puntos = GLOBAL.puntosdelus
 	var pc_puntos = GLOBAL.puntosdelpc
 	
-	print("--- FIN DE LA PARTIDA ---")
+	if u_puntos==21 and len(GLOBAL.cartasus)==2:
+		$ganaste.visible=true
+		GLOBAL.peso+=apuesta*2.5
 	if u_puntos > 21:
-		print("Perdiste! Te pasaste de 21.")
 		$perdiste.visible=true
-
 	elif pc_puntos > 21:
-		print("Ganaste! El crupier se pasó.")
 		GLOBAL.peso+=apuesta*2
 		$ganaste.visible=true
 	elif u_puntos > pc_puntos:
-		print("Ganaste por mayor puntaje!")
 		GLOBAL.peso+=apuesta*2
 		$ganaste.visible=true
 	elif pc_puntos > u_puntos:
-		print("Perdiste. El crupier tiene mejor mano.")
 		$perdiste.visible=true
-
-	else:
-		print("Empate! Se devuelve la apuesta.")
+	elif pc_puntos == u_puntos:
 		GLOBAL.peso+=apuesta
 		$empataste.visible=true
 
@@ -266,29 +270,36 @@ func comprobar_ganador():
 		apuesta=100
 	else:
 		apuesta=GLOBAL.peso
-	$VBoxContainer/HBoxContainer/apuesta.text=str(apuesta)
+	$VBoxContainer/HBoxContainer/apuesta.text=str("$", apuesta)
+	if apuesta>0:
+		$HBoxContainer/VBoxContainer2/repartir.disabled=false
+	else:
+		$HBoxContainer/VBoxContainer2/repartir.disabled=true
+		
 
 func _on_MAS_pressed():
-	if GLOBAL.peso>apuesta:
-		apuesta+=100
-		if apuesta>GLOBAL.peso:
-			apuesta=GLOBAL.peso
-			$VBoxContainer/HBoxContainer/apuesta.text=str(apuesta)
-		$VBoxContainer/HBoxContainer/apuesta.text=str(apuesta)
-	else:
-		$VBoxContainer/HBoxContainer/apuesta.modulate=Color.red
-		yield(get_tree().create_timer(0.15), "timeout")
-		$VBoxContainer/HBoxContainer/apuesta.modulate=Color.white
+	if losbool==false:
+		if GLOBAL.peso>apuesta:
+			apuesta+=100
+			if apuesta>GLOBAL.peso:
+				apuesta=GLOBAL.peso
+				$VBoxContainer/HBoxContainer/apuesta.text=str("$",apuesta)
+			$VBoxContainer/HBoxContainer/apuesta.text=str("$",apuesta)
+		else:
+			$VBoxContainer/HBoxContainer/apuesta.modulate=Color.red
+			yield(get_tree().create_timer(0.15), "timeout")
+			$VBoxContainer/HBoxContainer/apuesta.modulate=Color.white
 
 
 func _on_MENOS_pressed():
-	if apuesta>0 and apuesta<=100:
-		$VBoxContainer/HBoxContainer/apuesta.modulate=Color.red
-		yield(get_tree().create_timer(0.15), "timeout")
-		$VBoxContainer/HBoxContainer/apuesta.modulate=Color.white
-		$VBoxContainer/HBoxContainer/apuesta.text=str(apuesta)
-	elif apuesta>100:
-		apuesta-=100
-		$VBoxContainer/HBoxContainer/apuesta.text=str(apuesta)
-	else:
-		$VBoxContainer/HBoxContainer/apuesta.text=str(apuesta)
+	if losbool==false:
+		if apuesta>0 and apuesta<=100:
+			$VBoxContainer/HBoxContainer/apuesta.modulate=Color.red
+			yield(get_tree().create_timer(0.15), "timeout")
+			$VBoxContainer/HBoxContainer/apuesta.modulate=Color.white
+			$VBoxContainer/HBoxContainer/apuesta.text=str("$",apuesta)
+		elif apuesta>100:
+			apuesta-=100
+			$VBoxContainer/HBoxContainer/apuesta.text=str("$",apuesta)
+		else:
+			$VBoxContainer/HBoxContainer/apuesta.text=str("$",apuesta)

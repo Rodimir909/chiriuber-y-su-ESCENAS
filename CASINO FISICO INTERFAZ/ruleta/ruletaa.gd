@@ -10,9 +10,11 @@ var rojos = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35]
 
 var h = [0, 0, 0]
 
+var habilitado = true
+
 var boton = []
 
-var n : int = 200
+var n : int = 500
 
 var cant : float = 10
 
@@ -39,34 +41,34 @@ func _input(event):
 func analizar():
 	for i in range(boton.size()):
 		if (boton[i].name).replace("_", "")==str(alea):
-			GLOBAL.peso+=apuesta*35
+			GLOBAL.peso+=(apuesta*35)*h[i]
 		elif alea==0:
 			if (boton[i].name).replace("_", "")=="0":
-				GLOBAL.peso+=apuesta*35
+				GLOBAL.peso+=(apuesta*35)*h[i]
 			else:
-				GLOBAL.peso-=apuesta
+				pass
 		elif (boton[i].name).replace("columna", "") == str(alea%3) or (boton[i].name).replace("_", "")==str(int(((alea-1)%12)+1)):
-			GLOBAL.peso+=apuesta*3
+			GLOBAL.peso+=(apuesta*3)*h[i]
 		elif ((boton[i].name)=="Even" and alea%2==0) or ((boton[i].name)=="Odd" and alea%2==1) or ((boton[i].name).replace("_", "")=="1to18" and (alea>0 and alea<19)) or ((boton[i].name).replace("_", "")=="19to36" and (alea>18 and alea<37)):
-			GLOBAL.peso+=apuesta*2
-		elif boton[i].name=="Rlack":
+			GLOBAL.peso+=(apuesta*2)*h[i]
+		elif boton[i].name=="Black":
 			compro=true
 			for k in range(negros.size()):
 				if alea==negros[k]:
-					GLOBAL.peso+=apuesta*2
+					GLOBAL.peso+=(apuesta*2)*h[i]
 					compro=false
 			if compro==true:
-				GLOBAL.peso-=apuesta
+				pass
 		elif boton[i].name=="Red":
 			compro=true
 			for k in range(rojos.size()):
 				if alea==rojos[k]:
-					GLOBAL.peso+=apuesta*2
+					GLOBAL.peso+=(apuesta*2)*h[i]
 					compro=false
 			if compro==true:
-				GLOBAL.peso-=apuesta
+				pass
 		else:
-			GLOBAL.peso-=apuesta
+			pass
 func _ready():
 	if GLOBAL.peso>=100:
 		apuesta=100
@@ -82,9 +84,10 @@ func _ready():
 func _physics_process(delta):
 	if g<0:
 		$apostar.disabled=true
+		habilitado=true
 	if hab==true:
 		n+=1
-		if n>=200:
+		if n>=500:
 			$apostar.disabled=false
 			c+=cant
 			if c==360:
@@ -123,61 +126,20 @@ func _physics_process(delta):
 		$texto.visible=false
 
 func _on_boton_apuesta_pressed(boton_presionado: Button):
-	if GLOBAL.peso>0:
+	if (GLOBAL.peso-apuesta)>=0:
 	# Obtenemos el nombre del nodo directamente (ej: "01", "02", "RED", "BLACK")
 		if hab==true:
+			habilitado=false
 			var gg=false
 			for i in range(boton.size()):
 				if str(boton_presionado)==str(boton[i]):
 					if h[i]<10:
 						h[i]+=1
 						label[i].text=str("x", h[i])
+						GLOBAL.peso-=apuesta
 					else:
-						g-=1
-						if boton.size()==3:
-							if i==0:
-								label[0].visible=false
-								boton[0]=boton[2]
-								h[0]=h[2]
-								lab=label[2]
-								label[2]=label[0]
-								label[0]=lab
-								label[0].text=str("x", h[0])
-								boton.remove(2)
-								h[2]=0
-							elif i==1:
-								label[1].visible=false
-								boton[1]=boton[2]
-								h[1]=h[2]
-								lab=label[2]
-								label[2]=label[1]
-								label[1]=lab
-								label[1].text=str("x", h[1])
-								boton.remove(2)
-								h[2]=0
-							else:
-								label[2].visible=false
-								h[2]=0
-								boton.remove(2)
-						elif boton.size()==2:
-							if i==0:
-								label[0].visible=false
-								boton[0]=boton[1]
-								h[0]=h[1]
-								lab=label[1]
-								label[1]=label[0]
-								label[0]=lab
-								label[0].text=str("x", h[0])
-								boton.remove(1)
-								h[1]=0
-							else:
-								label[1].visible=false
-								h[1]=0
-								boton.remove(1)
-						elif boton.size()==1:
-							label[0].visible=false
-							h[0]=0
-							boton.remove(0)
+						$texto.text=str("NO MAS DE 10 FICHAS EN LA CASILLA")
+						$texto.visible=true
 					gg=true
 					break
 		#suma
@@ -192,12 +154,20 @@ func _on_boton_apuesta_pressed(boton_presionado: Button):
 					label[(boton.size())-1].rect_global_position=id_casillero
 					h[g]+=1
 					label[g].text=str("x", h[g])
+					GLOBAL.peso-=apuesta
 				else:
-					$texto.text=str("NO MAS DE 3")
 					$texto.visible=true
+					$texto.text=str("NO MAS DE 3")
+					yield(get_tree().create_timer(2), "timeout")
+					$texto.visible=false
+	else:
+		$texto.text="NO TIENES PLATA PARA FICHAS DE ESE VALOR"
+		$texto.visible=true
+		yield(get_tree().create_timer(2), "timeout")
+		$texto.visible=false
 
 func _on_Button_pressed():
-	if GLOBAL.peso>0:
+	if habilitado==false:
 		alea=GLOBAL.random(0,36)
 		$ruleta.rotation_degrees=numruleta[alea]
 		hab=false
@@ -208,25 +178,43 @@ func _on_Button_pressed():
 		$VBoxContainer4/HBoxContainer/apuesta.modulate=Color.white
 
 func _on_menos_pressed():
-	if apuesta>0 and apuesta<=100:
-		$VBoxContainer4/HBoxContainer/apuesta.modulate=Color.red
-		yield(get_tree().create_timer(0.15), "timeout")
-		$VBoxContainer4/HBoxContainer/apuesta.modulate=Color.white
-		$VBoxContainer4/HBoxContainer/apuesta.text=str("$", apuesta)
-	elif apuesta>100:
-		apuesta-=100
-		$VBoxContainer4/HBoxContainer/apuesta.text=str("$", apuesta)
-	else:
-		$VBoxContainer4/HBoxContainer/apuesta.text=str("$", apuesta)
+	if habilitado==true:
+		if apuesta>0 and apuesta<=100:
+			$VBoxContainer4/HBoxContainer/apuesta.modulate=Color.red
+			yield(get_tree().create_timer(0.15), "timeout")
+			$VBoxContainer4/HBoxContainer/apuesta.modulate=Color.white
+			$VBoxContainer4/HBoxContainer/apuesta.text=str("$", apuesta)
+		elif apuesta>100:
+			apuesta-=100
+			$VBoxContainer4/HBoxContainer/apuesta.text=str("$", apuesta)
+		else:
+			$VBoxContainer4/HBoxContainer/apuesta.text=str("$", apuesta)
 
 func _on_mas_pressed():
-	if GLOBAL.peso>apuesta:
-		apuesta+=100
-		if apuesta>GLOBAL.peso:
-			apuesta=GLOBAL.peso
-			$VBoxContainer4/HBoxContainer/apuesta.text=str(apuesta)
-		$VBoxContainer4/HBoxContainer/apuesta.text=str(apuesta)
-	else:
-		$VBoxContainer4/HBoxContainer/apuesta.modulate=Color.red
-		yield(get_tree().create_timer(0.15), "timeout")
-		$VBoxContainer4/HBoxContainer/apuesta.modulate=Color.white
+	if habilitado==true:
+		if GLOBAL.peso>apuesta:
+			apuesta+=100
+			if apuesta>GLOBAL.peso:
+				apuesta=GLOBAL.peso
+				$VBoxContainer4/HBoxContainer/apuesta.text=str("$", apuesta)
+			$VBoxContainer4/HBoxContainer/apuesta.text=str("$",apuesta)
+		else:
+			$VBoxContainer4/HBoxContainer/apuesta.modulate=Color.red
+			yield(get_tree().create_timer(0.15), "timeout")
+			$VBoxContainer4/HBoxContainer/apuesta.modulate=Color.white
+
+
+func _on_limpiar_pressed():
+	if hab==true:
+		if g>-1:
+			GLOBAL.peso+=apuesta*h[g]
+			label[g].visible=false
+			h[g]=0
+			boton.remove(g)
+			g-=1
+		else:
+			
+			$texto.text="NO TIENEN NIGUNA FICHA EN JUEGO"
+			$texto.visible=true
+			yield(get_tree().create_timer(2), "timeout")
+			$texto.visible=false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://CASINO FISICO INTERFAZ/blackjack/carta.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CASINO FISICO INTERFAZ/blackjack/mesa.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://ELEMENTOS/BOTON -.png" type="Texture" id=5]
 [ext_resource path="res://ELEMENTOS/BOTON +.png" type="Texture" id=6]
 [ext_resource path="res://CELULAR/NAVECITAS/varsity_regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://HUD/hud casino.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -143,7 +144,6 @@ text = "DOBLAR"
 margin_top = 86.0
 margin_right = 72.0
 margin_bottom = 106.0
-disabled = true
 text = "REPARTIR"
 
 [node name="pc" type="Path2D" parent="."]
@@ -263,6 +263,8 @@ margin_right = 554.0
 margin_bottom = 289.0
 custom_fonts/font = SubResource( 15 )
 text = "EMPATASTE"
+
+[node name="hud casino" parent="." instance=ExtResource( 8 )]
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/pedir" to="." method="_on_pedir_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/plantarse" to="." method="_on_plantarse_pressed"]

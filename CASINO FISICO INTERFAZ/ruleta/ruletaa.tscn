@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/fondo de ruleta.png" type="Texture" id=1]
 [ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/ruleta.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://ELEMENTOS/flecha.png" type="Texture" id=7]
 [ext_resource path="res://ELEMENTOS/BOTON +.png" type="Texture" id=8]
 [ext_resource path="res://ELEMENTOS/BOTON -.png" type="Texture" id=9]
+[ext_resource path="res://HUD/hud casino.tscn" type="PackedScene" id=10]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -33,6 +34,13 @@ text = "NO VA MAS"
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="limpiar" type="Button" parent="."]
+margin_left = 180.0
+margin_top = 547.0
+margin_right = 246.0
+margin_bottom = 567.0
+text = "LIMPIAR"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -663,6 +671,9 @@ icon = ExtResource( 8 )
 flat = true
 icon_align = 1
 
+[node name="hud casino" parent="." instance=ExtResource( 10 )]
+
 [connection signal="pressed" from="apostar" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="limpiar" to="." method="_on_limpiar_pressed"]
 [connection signal="pressed" from="VBoxContainer4/HBoxContainer/menos" to="." method="_on_menos_pressed"]
 [connection signal="pressed" from="VBoxContainer4/HBoxContainer/mas" to="." method="_on_mas_pressed"]
