@@ -1,3 +1,5 @@
+[gd_scene load_steps=48 format=2]
+
 [ext_resource path="res://mapa/vereda.png" type="Texture" id=1]
 [ext_resource path="res://mapa/mapitanuevo.svg" type="Texture" id=2]
 [ext_resource path="res://mapa/estructuras/casa casino.png" type="Texture" id=3]
@@ -10,7 +12,6 @@
 [ext_resource path="res://mapa/Mundo_Completo.gd" type="Script" id=10]
 [ext_resource path="res://TALLER/taller asets/bitmap.png" type="Texture" id=11]
 [ext_resource path="res://CELULAR/CELULAR.tscn" type="PackedScene" id=12]
-=======
 [ext_resource path="res://mapa/estructuras/casas/casafrente/casafrente 3.png" type="Texture" id=13]
 [ext_resource path="res://mapa/estructuras/casas/casafrente/casafrente 2.png" type="Texture" id=14]
 [ext_resource path="res://mapa/estructuras/casas/casafrente/casafrente 1.png" type="Texture" id=15]
@@ -22,7 +23,7 @@
 [ext_resource path="res://mapa/estructuras/casas/casafondo/casa fondo 3.png" type="Texture" id=21]
 [ext_resource path="res://mapa/estructuras/casas/casafondo/casa fondo 2.png" type="Texture" id=22]
 [ext_resource path="res://mapa/estructuras/casas/casafondo/casa fondo 1.png" type="Texture" id=23]
->>>>>>> intento-de-terminacion-de-mapa
+[ext_resource path="res://CELULAR/DIUB/pasajeros/pasajero.tscn" type="PackedScene" id=24]
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 111, 63 )
@@ -465,12 +466,8 @@ points = PoolVector2Array( 17.2821, 32, 14.366, 32, 14.366, 0, 17.2821, 0 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 10 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 0.0, 3594.0 ],
-"_edit_vertical_guides_": [ 7114.0 ]
-}
 CELU = ExtResource( 12 )
-PASAJERO = ExtResource( 13 )
+PASAJERO = ExtResource( 24 )
 
 [node name="Puerta2" type="Area2D" parent="."]
 position = Vector2( 10931, 2492 )
