@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://mapa/vereda.png" type="Texture" id=1]
 [ext_resource path="res://mapa/mapitanuevo.svg" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://mapa/Mundo_Completo.gd" type="Script" id=10]
 [ext_resource path="res://TALLER/taller asets/bitmap.png" type="Texture" id=11]
 [ext_resource path="res://CELULAR/CELULAR.tscn" type="PackedScene" id=12]
+[ext_resource path="res://CELULAR/DIUB/pasajeros/pasajero.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 111, 63 )
@@ -186,7 +187,12 @@ points = PoolVector2Array( 288, 160, 25.8073, 159.993, 22.9138, 10.1934, 288, 10
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 10 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 0.0, 3594.0 ],
+"_edit_vertical_guides_": [ 7114.0 ]
+}
 CELU = ExtResource( 12 )
+PASAJERO = ExtResource( 13 )
 
 [node name="Puerta2" type="Area2D" parent="."]
 position = Vector2( 10931, 2492 )

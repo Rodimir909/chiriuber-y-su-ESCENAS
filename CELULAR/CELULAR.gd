@@ -34,7 +34,8 @@ func _on_SPIFY_pressed():
 
 
 func _on_DIUB_pressed():
-	get_tree().change_scene("res://CELULAR/DIUB/DIUB.tscn")
+	$Control/TextureRect/APPS.visible = true
+	$Control/TextureRect/APPS/Diu.visible = true
 
 
 func _on_WASP_pressed():

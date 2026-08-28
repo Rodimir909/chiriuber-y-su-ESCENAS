@@ -13,16 +13,14 @@
 [ext_resource path="res://CELULAR/TRAEYO/TRAEYO.gd" type="Script" id=11]
 
 [node name="Control" type="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -168.0
-margin_top = -300.0
-margin_right = 168.0
-margin_bottom = 300.0
+anchor_left = 0.335938
+anchor_right = 0.664063
+anchor_bottom = 1.0
 rect_min_size = Vector2( 336, 600 )
 script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1, 0 )
