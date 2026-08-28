@@ -16,11 +16,14 @@ var deslizamiento_actual = 0.15
 var rotacion_dir = 0
 var angulo_giro_actual = 0.0
 
+var rotaciondeguia : float 
+
 var is_player_on = false
 signal up 
 var canup = false
 
 var vida_auto = 100
+
 func _ready():
 	if datos and datos is DatosAuto:
 		CColor = datos.Cant_color
@@ -40,10 +43,36 @@ func _ready():
 	if GLOBAL.teletrasportarse:
 		global_position = GLOBAL.posicion_aparicion
 		GLOBAL.teletrasportarse = false 
-		
-		
 
 func _physics_process(delta):
+	if GLOBAL.enviaje==true and is_player_on==true:
+		if GLOBAL.buscado==false:
+			var destino = GLOBAL.origen_pasajero
+				
+	# 1. Hacemos que el RayCast apunte hacia las coordenadas del destino
+			$guia.look_at(destino)
+				
+				# 2. Ajustamos la longitud del rayo para que llegue hasta el objetivo
+			var distancia = global_position.distance_to(destino)
+			$guia.cast_to = Vector2(distancia, 0)
+				
+				# 3. Opcional: Ocultar la flecha si ya llegaste cerca
+			$guia.visible = distancia > 50
+		else:
+			var destino = GLOBAL.destino_pasajero
+				
+	# 1. Hacemos que el RayCast apunte hacia las coordenadas del destino
+			$guia.look_at(destino)
+				
+				# 2. Ajustamos la longitud del rayo para que llegue hasta el objetivo
+			var distancia = global_position.distance_to(destino)
+			$guia.cast_to = Vector2(distancia, 0)
+				
+				# 3. Opcional: Ocultar la flecha si ya llegaste cerca
+			$guia.visible = distancia > 50
+	else:
+		$guia.visible = false
+	
 	if not datos:
 		return
 	if not is_player_on:
@@ -116,7 +145,7 @@ func subir_Ctrl():
 		$Camera2D.current = true
 		is_player_on = true
 		emit_signal("up")
-	
+
 func _input(event):
 	if event.is_action_pressed("accion") and canup:
 		subir_Ctrl()
@@ -125,11 +154,9 @@ func _on_KinematicBody2D_down():
 	$Camera2D.current = false
 	is_player_on = false
 
-
 func _on_taller_interfaz_taller():
 	is_player_on = false
 	canup = false
 
-	
 func _on_Node2D_taler():
 	subir_Ctrl()

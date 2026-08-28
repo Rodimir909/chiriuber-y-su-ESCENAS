@@ -5,9 +5,20 @@ var pos
 onready var score : int
 onready var time = true
 
+var nombre : String 
+
 var posiccion: Vector2
 
+signal viaje
+
+var origen_pasajero : Vector2
+var destino_pasajero : Vector2
+
+var buscado : bool = false
+
 var daa: Vector2=Vector2(478,525)
+
+var enviaje : bool = false
 
 var cartasus = []
 var puntosdelus: int = 0

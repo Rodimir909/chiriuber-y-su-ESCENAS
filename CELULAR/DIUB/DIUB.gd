@@ -1,0 +1,97 @@
+extends Control
+
+var precio = 0
+var metros : int
+var tiempo : int
+var tr : bool = false
+#104 nombres
+var nombres = [
+	"Martin", "Lucas", "Joaquín", "Santiago", "Benjamín", "Nicolás", "Tomás", "Agustín", "Gabriel", "Lautaro",
+	"Bruno", "Thiago", "Valentín", "Felipe", "Gonzalo", "Franco", "Santino", "Julián", "Máximo", "Felicitas",
+	"Rodrigo", "Emiliano", "Matías", "Diego", "Leonardo", "Manuel", "Samuel", "Ramiro", "Facundo", "Damián",
+	"Marcos", "Ezequiel", "Alan", "Iván", "Kevin", "Brian", "Alex", "Adrián", "Sebastián", "Esteban", 
+	"Mauricio", "Cristian", "Gastón", "Nahuel", "Enzo", "Luciano", "Martín", "Javier", "Fernando", "Carlos",
+	"Sofía", "Valentina", "Lucía", "Martina", "Camila", "Emma", "Isabella", "Catalina", "Mia", "Delfina",
+	"Elena", "Olivia", "Victoria", "Zoe", "Paula", "Renata", "Julieta", "Antonella", "Alma", "Josefina",
+	"Luana", "Jazmín", "Micaela", "Abríl", "Bianca", "Lola", "Florencia", "Mariana", "Carla", "Romina",
+	"Daniela", "Natalia", "Andrea", "Laura", "Sara", "Valeria", "Carolina", "Rocío", "Sabrina", "Vanessa",
+	"Brenda", "Agostina", "Pilar", "Milagros", "Sol", "Lara", "Nicole", "Belén", "Ariana", "Tatiana",
+	"IGNACIO CHIRINO", "CIRO WENDLER", "ISHMAEL SIMONCINI"
+]
+
+func _physics_process(delta):
+	if tr==true:
+		$"fondo viajes/ProgressBar".value-=1
+		if $"fondo viajes/ProgressBar".value==0:
+			$"fondo viajes".visible=false
+			tiempo=GLOBAL.random(5, 120)
+			yield(get_tree().create_timer(tiempo), "timeout")
+			$"fondo viajes/ProgressBar".value=1000
+			aleo()
+			$"fondo viajes".visible=true
+			tr=true
+
+func zonaorigen():
+	if GLOBAL.origen_pasajero.x<7114 and GLOBAL.origen_pasajero.y>0:
+		$"fondo viajes/origen".text="Zona Noroeste"
+	elif GLOBAL.origen_pasajero.x>7114 and GLOBAL.origen_pasajero.y>0:
+		$"fondo viajes/origen".text="Zona Noreste"
+	elif GLOBAL.origen_pasajero.x<7114 and GLOBAL.origen_pasajero.y<0:
+		$"fondo viajes/origen".text="Zona Suroeste"
+	elif GLOBAL.origen_pasajero.x>7114 and GLOBAL.origen_pasajero.y<0 and GLOBAL.origen_pasajero.y>3594:
+		$"fondo viajes/origen".text="Zona Noreste"
+	elif GLOBAL.origen_pasajero.x>7114 and GLOBAL.origen_pasajero.y>3594:
+		$"fondo viajes/origen".text="Zona Sur"
+
+func zonadestino():
+	if GLOBAL.destino_pasajero.x<7114 and GLOBAL.destino_pasajero.y>0:
+		$"fondo viajes/destino".text="Zona Noroeste"
+	elif GLOBAL.destino_pasajero.x>7114 and GLOBAL.destino_pasajero.y>0:
+		$"fondo viajes/destino".text="Zona Noreste"
+	elif GLOBAL.destino_pasajero.x<7114 and GLOBAL.destino_pasajero.y<0:
+		$"fondo viajes/destino".text="Zona Suroeste"
+	elif GLOBAL.destino_pasajero.x>7114 and GLOBAL.destino_pasajero.y<0 and GLOBAL.destino_pasajero.y>3594:
+		$"fondo viajes/destino".text="Zona Noreste"
+	elif GLOBAL.destino_pasajero.x>7114 and GLOBAL.destino_pasajero.y>3594:
+		$"fondo viajes/destino".text="Zona Sur"
+		
+func aleo():
+	$"fondo viajes/nombres".text=nombres[GLOBAL.random(0,102)]
+	zonaorigen()
+	zonadestino()
+	metros= int((GLOBAL.origen_pasajero.distance_to(GLOBAL.destino_pasajero))/16)
+	if metros>=1000:
+		$"fondo viajes/distancia".text=str(metros/1000.0, 0,1)+"km"
+	else:
+		$"fondo viajes/distancia".text=str(metros)+"m"
+	precio = stepify((200+(metros*0.5)),10)
+	$"fondo viajes/precio".text=str(precio)
+	
+func _on_startstop_pressed():
+	tiempo=GLOBAL.random(5, 120)
+	$"start-stop/AnimatedSprite".play("stop")
+	yield(get_tree().create_timer(tiempo), "timeout")
+	GLOBAL.emit_signal("viaje")
+	aleo()
+	$"fondo viajes".visible=true
+	tr=true
+
+
+func _on_rechazar_pressed():
+	$"fondo viajes".visible=false
+	tiempo=GLOBAL.random(5, 120)
+	yield(get_tree().create_timer(tiempo), "timeout")
+	$"fondo viajes/ProgressBar".value=1000
+	aleo()
+	$"fondo viajes".visible=true
+	tr=true
+
+
+func _on_aceptar_pressed():
+	$"start-stop".visible=false
+	$"fondo viajes/ProgressBar".visible=false
+	$"fondo viajes/ProgressBar".value=1000
+	tr=false
+	$"fondo viajes/aceptar".visible=false
+	$"fondo viajes/rechazar".visible=false
+	$"fondo viajes/Label".visible=true

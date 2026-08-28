@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Autos/Autos_config/F-100.tres" type="Resource" id=1]
 [ext_resource path="res://Autos/gameassets/SpritexAuto/F-100_Auto.svg" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Autos/gameassets/escalaescape.tres" type="Curve" id=6]
 [ext_resource path="res://Autos/gameassets/escape.tres" type="Gradient" id=7]
 [ext_resource path="res://Autos/gameassets/drif.tres" type="Gradient" id=8]
+[ext_resource path="res://ELEMENTOS/elemento de flecha.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 11, 21.5 )
@@ -74,6 +75,15 @@ color_ramp = ExtResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2( 0.5, 0.5 )
+
+[node name="guia" type="RayCast2D" parent="."]
+visible = false
+
+[node name="flecha" type="Sprite" parent="guia"]
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+offset = Vector2( 0, -90 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
