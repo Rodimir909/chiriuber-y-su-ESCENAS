@@ -19,6 +19,7 @@ func analizar():
 		GLOBAL.peso+=apuesta*10
 	elif $AnimatedSprite.frame>=2 and $AnimatedSprite2.frame>=2 and $AnimatedSprite3.frame>=2:
 		GLOBAL.peso+=apuesta*2
+	_ready()
 func _ready():
 	if GLOBAL.peso>=100:
 		apuesta=100
