@@ -24,13 +24,13 @@ func _physics_process(delta):
 		motion = move_and_collide(motion* delta)
 	else:
 		pass
-	if SPEED==200 and GLOBAL.stamina>0:
+	if SPEED==200 and GLOBAL.stamina>0 and is_on_car==false:
 		GLOBAL.stamina-=1
 		GLOBAL.sed-=0.001
 		GLOBAL.hambre-=0.0005
 	elif SPEED==100 and GLOBAL.stamina<100:
 		GLOBAL.stamina+=0.3
-	elif GLOBAL.stamina<=0:
+	elif GLOBAL.stamina<=0 and is_on_car==false:
 		SPEED=101
 		$AnimatedSprite.speed_scale=1
 	GLOBAL.sed-=0.0001
@@ -79,7 +79,7 @@ func motion_ctrl():
 	
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
-		if GLOBAL.stamina>1:
+		if GLOBAL.stamina>1 and is_on_car==false:
 			$AnimatedSprite.speed_scale=2
 			SPEED=200
 	if event.is_action_released("ui_accept"):

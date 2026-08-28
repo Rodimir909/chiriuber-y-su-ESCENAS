@@ -6,6 +6,8 @@ func _input(event):
 			$Control/TextureRect/APPS.visible=false
 			if $Control/TextureRect/APPS/Cas:
 				$Control/TextureRect/APPS/Cas.visible = false
+			if $Control/TextureRect/APPS/Tra:
+				$Control/TextureRect/APPS/Tra.visible = false
 
 func _on_CASINO_pressed():
 	$Control/TextureRect/APPS.visible = true
@@ -17,7 +19,8 @@ func _on_NAVECITA_pressed():
 
 
 func _on_TRAEYO_pressed():
-	get_tree().change_scene("res://CELULAR/TRAEYO/TRAEYO.tscn")
+	$Control/TextureRect/APPS.visible = true
+	$Control/TextureRect/APPS/Tra.visible = true
 
 
 func _on_MISIONES_pressed():

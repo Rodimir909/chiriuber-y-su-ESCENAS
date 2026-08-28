@@ -167,9 +167,21 @@ __meta__ = {
 
 [node name="Tra" parent="Control/TextureRect/APPS" instance=ExtResource( 13 )]
 visible = false
+margin_left = -171.5
+margin_top = -300.494
+margin_right = 168.5
+margin_bottom = 299.506
 
 [node name="Cas" parent="Control/TextureRect/APPS" instance=ExtResource( 14 )]
 visible = false
+margin_left = -110.103
+margin_top = -6.0
+margin_right = 106.103
+margin_bottom = 8.01215
+__meta__ = {
+"_edit_horizontal_guides_": [ 359.0, 411.0 ],
+"_edit_vertical_guides_": [ 476.0, 552.0 ]
+}
 
 [connection signal="pressed" from="Control/TextureRect/VBoxContainer/HBoxContainer/WASP" to="." method="_on_WASP_pressed"]
 [connection signal="pressed" from="Control/TextureRect/VBoxContainer/HBoxContainer/DIUB" to="." method="_on_DIUB_pressed"]
