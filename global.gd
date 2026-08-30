@@ -10,11 +10,15 @@ var nombre : String
 var posiccion: Vector2
 
 signal viaje
+signal establecerpunto
+signal fin
+signal aceptado
 
 var origen_pasajero : Vector2
 var destino_pasajero : Vector2
 
 var buscado : bool = false
+var acepta : bool = false
 
 var daa: Vector2=Vector2(478,525)
 

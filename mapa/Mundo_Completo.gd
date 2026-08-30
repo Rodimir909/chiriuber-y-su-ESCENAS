@@ -2,12 +2,15 @@ extends Node2D
 
 export (PackedScene) var CELU
 export (PackedScene) var PASAJERO
+export (PackedScene) var DESTINO
 signal taler
 
 onready var tilemap = $vereda
 const ID_VEREDA = 0 
 
 func _ready():
+	GLOBAL.connect("aceptado", self, "estanciado0")
+	GLOBAL.connect("establecerpunto", self, "estanciado1")
 	GLOBAL.connect("viaje", self, "generar_viaje_uber")
 	if GLOBAL.pos == "casino":
 		$KinematicBody2D.position = Vector2(9200,8000)
@@ -19,6 +22,16 @@ func _ready():
 		$Auto.rotate(deg2rad(90))
 		GLOBAL.pos = ""
 
+func estanciado1():
+	var destino = DESTINO.instance()
+	destino.position = GLOBAL.destino_pasajero
+	add_child(destino)
+
+func estanciado0():
+	var pasajero = PASAJERO.instance()
+	pasajero.position = GLOBAL.origen_pasajero
+	add_child(pasajero)
+
 func generar_viaje_uber():
 	GLOBAL.origen_pasajero = obtener_punto_de_viaje_aleatorio()
 	GLOBAL.destino_pasajero = obtener_punto_de_viaje_aleatorio()
@@ -26,14 +39,7 @@ func generar_viaje_uber():
 	while GLOBAL.origen_pasajero.distance_to(GLOBAL.destino_pasajero) < 500:
 		GLOBAL.destino_pasajero = obtener_punto_de_viaje_aleatorio()
 	
-	GLOBAL.enviaje=true
-	var pasajero = PASAJERO.instance()
-	pasajero.position = GLOBAL.origen_pasajero
 
-	add_child(pasajero)
-	print("¡Nuevo Viaje Uber!")
-	print("Buscar en: ", GLOBAL.origen_pasajero)
-	print("Llevar a: ", GLOBAL.destino_pasajero)
 
 func obtener_punto_de_viaje_aleatorio() -> Vector2:
 	randomize()

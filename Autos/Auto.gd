@@ -45,7 +45,7 @@ func _ready():
 		GLOBAL.teletrasportarse = false 
 
 func _physics_process(delta):
-	if GLOBAL.enviaje==true and is_player_on==true:
+	if GLOBAL.enviaje==true and is_player_on==true and GLOBAL.acepta==true:
 		if GLOBAL.buscado==false:
 			var destino = GLOBAL.origen_pasajero
 				

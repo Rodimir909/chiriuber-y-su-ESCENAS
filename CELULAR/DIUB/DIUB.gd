@@ -4,6 +4,8 @@ var precio = 0
 var metros : int
 var tiempo : int
 var tr : bool = false
+var cancelar : bool = false
+
 #104 nombres
 var nombres = [
 	"Martin", "Lucas", "Joaquín", "Santiago", "Benjamín", "Nicolás", "Tomás", "Agustín", "Gabriel", "Lautaro",
@@ -15,21 +17,33 @@ var nombres = [
 	"Elena", "Olivia", "Victoria", "Zoe", "Paula", "Renata", "Julieta", "Antonella", "Alma", "Josefina",
 	"Luana", "Jazmín", "Micaela", "Abríl", "Bianca", "Lola", "Florencia", "Mariana", "Carla", "Romina",
 	"Daniela", "Natalia", "Andrea", "Laura", "Sara", "Valeria", "Carolina", "Rocío", "Sabrina", "Vanessa",
-	"Brenda", "Agostina", "Pilar", "Milagros", "Sol", "Lara", "Nicole", "Belén", "Ariana", "Tatiana",
-	"IGNACIO CHIRINO", "CIRO WENDLER", "ISHMAEL SIMONCINI"
+	"Brenda", "Agostina", "Pilar", "Milagros", "Sol", "Lara", "Nicole", "Belén", "Ariana", "Tatiana", 
+	"IGNACIO CHIRINO", "CIRO WENDLER", "ISHMAEL SIMONCINI", "ROMAN CARRIZO", "GONZALO CHIRINO", "NAHUEL ROJAS"
 ]
+
+func _ready():
+	GLOBAL.connect("fin", self, "fina")
 
 func _physics_process(delta):
 	if tr==true:
 		$"fondo viajes/ProgressBar".value-=1
 		if $"fondo viajes/ProgressBar".value==0:
+			GLOBAL.acepta=false
 			$"fondo viajes".visible=false
-			tiempo=GLOBAL.random(5, 120)
-			yield(get_tree().create_timer(tiempo), "timeout")
-			$"fondo viajes/ProgressBar".value=1000
-			aleo()
-			$"fondo viajes".visible=true
-			tr=true
+			tr=false
+			generacion()
+
+func fina():
+	$"start-stop".visible=true
+	$"fondo viajes/ProgressBar".visible=true
+	$"fondo viajes/ProgressBar".value=1000
+	tr=false
+	$"fondo viajes/aceptar".visible=true
+	$"fondo viajes/rechazar".visible=true
+	$"fondo viajes/Label".visible=false
+	$"fondo viajes".visible=false
+	GLOBAL.peso+=int(precio)
+	generacion()
 
 func zonaorigen():
 	if GLOBAL.origen_pasajero.x<7114 and GLOBAL.origen_pasajero.y>0:
@@ -54,9 +68,22 @@ func zonadestino():
 		$"fondo viajes/destino".text="Zona Noreste"
 	elif GLOBAL.destino_pasajero.x>7114 and GLOBAL.destino_pasajero.y>3594:
 		$"fondo viajes/destino".text="Zona Sur"
-		
+
+func generacion():
+	tiempo=GLOBAL.random(5, 120)
+	yield(get_tree().create_timer(tiempo), "timeout")
+	if cancelar==true:
+		return
+	print("siguio?")
+	$"fondo viajes/ProgressBar".value=1000
+	GLOBAL.emit_signal("viaje")
+	aleo()
+	GLOBAL.enviaje=true
+	$"fondo viajes".visible=true
+	tr=true
+
 func aleo():
-	$"fondo viajes/nombres".text=nombres[GLOBAL.random(0,102)]
+	$"fondo viajes/nombres".text=nombres[GLOBAL.random(0,105)]
 	zonaorigen()
 	zonadestino()
 	metros= int((GLOBAL.origen_pasajero.distance_to(GLOBAL.destino_pasajero))/16)
@@ -65,26 +92,26 @@ func aleo():
 	else:
 		$"fondo viajes/distancia".text=str(metros)+"m"
 	precio = stepify((200+(metros*0.5)),10)
-	$"fondo viajes/precio".text=str(precio)
+	$"fondo viajes/precio".text=str("$", precio)
 	
 func _on_startstop_pressed():
-	tiempo=GLOBAL.random(5, 120)
-	$"start-stop/AnimatedSprite".play("stop")
-	yield(get_tree().create_timer(tiempo), "timeout")
-	GLOBAL.emit_signal("viaje")
-	aleo()
-	$"fondo viajes".visible=true
-	tr=true
+	if $"start-stop/AnimatedSprite".animation=="start":
+		$"start-stop/AnimatedSprite".play("stop")
+		cancelar=false
+		generacion()
+	else:
+		$"start-stop/AnimatedSprite".play("start")
+		$"fondo viajes/ProgressBar".value=1000
+		$"fondo viajes".visible=false
+		cancelar=true
+		GLOBAL.enviaje=false
 
 
 func _on_rechazar_pressed():
+	GLOBAL.acepta=false
 	$"fondo viajes".visible=false
-	tiempo=GLOBAL.random(5, 120)
-	yield(get_tree().create_timer(tiempo), "timeout")
-	$"fondo viajes/ProgressBar".value=1000
-	aleo()
-	$"fondo viajes".visible=true
-	tr=true
+	tr=false
+	generacion()
 
 
 func _on_aceptar_pressed():
@@ -95,3 +122,5 @@ func _on_aceptar_pressed():
 	$"fondo viajes/aceptar".visible=false
 	$"fondo viajes/rechazar".visible=false
 	$"fondo viajes/Label".visible=true
+	GLOBAL.acepta=true
+	GLOBAL.emit_signal("aceptado")

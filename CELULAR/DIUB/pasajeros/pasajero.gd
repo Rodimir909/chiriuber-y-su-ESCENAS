@@ -1,9 +1,16 @@
 extends Node2D
 
+
+
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("car"):
-		$Sprite.visible=false
+		visible=false
 		GLOBAL.buscado=true
+		GLOBAL.emit_signal("establecerpunto")
+
+func fina():
+	visible=true
+	GLOBAL.buscado=false
 
 func _ready():
 	# Buscamos el TileMap específico del pasto en el mapa
@@ -11,6 +18,7 @@ func _ready():
 	
 	if tilemap_pasto:
 		orientar_hacia_la_calle(tilemap_pasto)
+	GLOBAL.connect("fin", self, "fina")
 
 func orientar_hacia_la_calle(mapa_pasto: TileMap):
 	# Pasamos la posición del pasajero a la celda del TileMap de pasto
