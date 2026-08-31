@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 onready var label = [$apuesta1, $apuesta2, $apuesta3]
 
@@ -36,7 +36,7 @@ var apuesta:int
 
 func _input(event):
 	if event.is_action_pressed("ui_home"):
-		get_tree().change_scene("res://CASINO FISICO INTERFAZ/casino fisico.tscn")
+		GLOBAL.emit_signal("salir")
 
 func analizar():
 	for i in range(boton.size()):
@@ -69,6 +69,7 @@ func analizar():
 				pass
 		else:
 			pass
+			
 func _ready():
 	if GLOBAL.peso>=100:
 		apuesta=100

@@ -16,7 +16,6 @@ func deaht_enem():
 	queue_free()
 	explosion_ctrl()
 	GLOBAL.score+=3
-	print(GLOBAL.score)
 
 func deaht_enemy():
 	disparobig+=1
@@ -25,7 +24,6 @@ func deaht_enemy():
 		explosion_ctrl()
 		disparobig=0
 		GLOBAL.score+=0003
-	print(GLOBAL.score)
 	
 func explosion_ctrl():
 	var explosion = EXPLOSION.instance()

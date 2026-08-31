@@ -78,7 +78,7 @@ zoom = Vector2( 0.3, 0.3 )
 wait_time = 0.5
 one_shot = true
 
-[node name="Control" parent="." instance=ExtResource( 4 )]
+[node name="celu" parent="." instance=ExtResource( 4 )]
 visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

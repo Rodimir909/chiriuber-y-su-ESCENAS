@@ -27,7 +27,6 @@ var vida_auto = 100
 func _ready():
 	if datos and datos is DatosAuto:
 		CColor = datos.Cant_color
-		print(CColor)
 		VColor = datos.Color_CTRL
 		
 		$Sprite.frame = datos.Color_CTRL

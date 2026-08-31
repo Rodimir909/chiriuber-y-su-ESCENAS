@@ -3,15 +3,20 @@ extends Node2D
 export (PackedScene) var CELU
 export (PackedScene) var PASAJERO
 export (PackedScene) var DESTINO
+
 signal taler
 
 onready var tilemap = $vereda
 const ID_VEREDA = 0 
 
+var escenacasino = preload("res://CASINO FISICO INTERFAZ/casino fisico.tscn")
+var instancia = null
+
 func _ready():
 	GLOBAL.connect("aceptado", self, "estanciado0")
 	GLOBAL.connect("establecerpunto", self, "estanciado1")
 	GLOBAL.connect("viaje", self, "generar_viaje_uber")
+	GLOBAL.connect("esconcasino", self, "escondercasino")
 	if GLOBAL.pos == "casino":
 		$KinematicBody2D.position = Vector2(9200,8000)
 		$Auto.position = Vector2(9300,8000)
@@ -21,6 +26,11 @@ func _ready():
 		$Auto.position = Vector2(10931,2630)
 		$Auto.rotate(deg2rad(90))
 		GLOBAL.pos = ""
+
+func escondercasino():
+	instancia.queue_free()
+	instancia=null
+	$KinematicBody2D/Camera2D.current = true
 
 func estanciado1():
 	var destino = DESTINO.instance()
@@ -57,10 +67,12 @@ func obtener_punto_de_viaje_aleatorio() -> Vector2:
    
 
 func _on_puerta_body_entered(body):
-	
 	if body.is_in_group("player"):
 		GLOBAL.pos = "casino"
-		get_tree().change_scene("res://CASINO FISICO INTERFAZ/casino fisico.tscn")
+		instancia = escenacasino.instance()
+		
+		$estructura.add_child(instancia)
+		
 
 func _on_KinematicBody2D_down():
 	$KinematicBody2D.position = $Auto.position

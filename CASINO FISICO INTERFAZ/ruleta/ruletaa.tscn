@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/fondo de ruleta.png" type="Texture" id=1]
 [ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/ruleta.png" type="Texture" id=2]
@@ -9,11 +9,8 @@
 [ext_resource path="res://ELEMENTOS/flecha.png" type="Texture" id=7]
 [ext_resource path="res://ELEMENTOS/BOTON +.png" type="Texture" id=8]
 [ext_resource path="res://ELEMENTOS/BOTON -.png" type="Texture" id=9]
-[ext_resource path="res://HUD/hud casino.tscn" type="PackedScene" id=10]
 
-[node name="Control" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Control" type="CanvasLayer"]
 script = ExtResource( 3 )
 
 [node name="fondo" type="Sprite" parent="."]
@@ -22,7 +19,7 @@ centered = false
 
 [node name="ruleta" type="Sprite" parent="."]
 position = Vector2( 209, 211 )
-rotation = 3.9968
+rotation = -2.28639
 texture = ExtResource( 2 )
 
 [node name="apostar" type="Button" parent="."]
@@ -670,8 +667,6 @@ rect_min_size = Vector2( 32, 32 )
 icon = ExtResource( 8 )
 flat = true
 icon_align = 1
-
-[node name="hud casino" parent="." instance=ExtResource( 10 )]
 
 [connection signal="pressed" from="apostar" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="limpiar" to="." method="_on_limpiar_pressed"]

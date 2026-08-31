@@ -2,7 +2,7 @@ extends Control
 
 var precio = 0
 var metros : int
-var tiempo : int
+var tiemp : int
 var tr : bool = false
 var cancelar : bool = false
 
@@ -31,19 +31,18 @@ func _physics_process(delta):
 			GLOBAL.acepta=false
 			$"fondo viajes".visible=false
 			tr=false
-			generacion()
+			tiempo()
 
 func fina():
 	$"start-stop".visible=true
 	$"fondo viajes/ProgressBar".visible=true
-	$"fondo viajes/ProgressBar".value=1000
 	tr=false
 	$"fondo viajes/aceptar".visible=true
 	$"fondo viajes/rechazar".visible=true
 	$"fondo viajes/Label".visible=false
 	$"fondo viajes".visible=false
 	GLOBAL.peso+=int(precio)
-	generacion()
+	tiempo()
 
 func zonaorigen():
 	if GLOBAL.origen_pasajero.x<7114 and GLOBAL.origen_pasajero.y>0:
@@ -69,12 +68,11 @@ func zonadestino():
 	elif GLOBAL.destino_pasajero.x>7114 and GLOBAL.destino_pasajero.y>3594:
 		$"fondo viajes/destino".text="Zona Sur"
 
+func tiempo():
+	tiemp=GLOBAL.random(5, 120)
+	$generacion.start(tiemp)
+
 func generacion():
-	tiempo=GLOBAL.random(5, 120)
-	yield(get_tree().create_timer(tiempo), "timeout")
-	if cancelar==true:
-		return
-	print("siguio?")
 	$"fondo viajes/ProgressBar".value=1000
 	GLOBAL.emit_signal("viaje")
 	aleo()
@@ -97,13 +95,12 @@ func aleo():
 func _on_startstop_pressed():
 	if $"start-stop/AnimatedSprite".animation=="start":
 		$"start-stop/AnimatedSprite".play("stop")
-		cancelar=false
-		generacion()
+		tiempo()
 	else:
 		$"start-stop/AnimatedSprite".play("start")
-		$"fondo viajes/ProgressBar".value=1000
+		$generacion.stop()
+		GLOBAL.acepta=false
 		$"fondo viajes".visible=false
-		cancelar=true
 		GLOBAL.enviaje=false
 
 
@@ -111,7 +108,7 @@ func _on_rechazar_pressed():
 	GLOBAL.acepta=false
 	$"fondo viajes".visible=false
 	tr=false
-	generacion()
+	tiempo()
 
 
 func _on_aceptar_pressed():
@@ -124,3 +121,7 @@ func _on_aceptar_pressed():
 	$"fondo viajes/Label".visible=true
 	GLOBAL.acepta=true
 	GLOBAL.emit_signal("aceptado")
+
+
+func _on_generacion_timeout():
+	generacion()

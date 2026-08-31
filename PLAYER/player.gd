@@ -6,18 +6,37 @@ onready var motion = Vector2.ZERO #para que se mueva en vector x y
 onready var screensize = get_viewport_rect().size #saber el tamaño de la pantalla
 
 
-
 var is_on_car = false
 var can_down = false
 signal down
 
 func _ready():
 	$AnimatedSprite.play("IDLE")
+	GLOBAL.connect("salir", self, "sal")
+	GLOBAL.connect("guardartelefono", self, "esconder")
 	
+func sal():
+	SPEED=100
+
+func esconder():
+	if has_node("celu"):
+		$celu.visible=false
+		GLOBAL.no=true
+
+func desactivar_interfaz():
+	if has_node("celu"):
+		$celu.visible = false
+		$celu.queue_free()
+	if has_node("HUD"):
+		$HUD.visible = false
+
 func posicion():
 	GLOBAL.posiccion=self.global_position + Vector2(0, 25)
+	
 func ca():
 	GLOBAL.daa=self.global_position + Vector2(0, 25)
+	SPEED=0
+	
 func _physics_process(delta):
 	if not is_on_car:
 		motion_ctrl()
@@ -87,11 +106,13 @@ func _input(event):
 		$AnimatedSprite.speed_scale=1
 	if event.is_action_pressed("accion") :
 		bajar()
-	if event.is_action_pressed("celu"):
-		if not $Control.visible:
-			$Control.visible = true
-		else:
-			$Control.visible = false
+	if has_node("celu") and GLOBAL.no==false:
+		if event.is_action_pressed("celu"):
+			if not $celu.visible:
+				$celu.visible = true
+			else:
+				$celu.visible = false
+		
 func bajar():
 	if is_on_car:
 		$Camera2D.current = true

@@ -222,6 +222,9 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 8 )
 text = "EN VIAJE"
 
+[node name="generacion" type="Timer" parent="."]
+
 [connection signal="pressed" from="start-stop" to="." method="_on_startstop_pressed"]
 [connection signal="pressed" from="fondo viajes/aceptar" to="." method="_on_aceptar_pressed"]
 [connection signal="pressed" from="fondo viajes/rechazar" to="." method="_on_rechazar_pressed"]
+[connection signal="timeout" from="generacion" to="." method="_on_generacion_timeout"]

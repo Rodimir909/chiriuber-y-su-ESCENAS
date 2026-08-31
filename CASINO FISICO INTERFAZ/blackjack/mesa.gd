@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 export (PackedScene) var carta
 
@@ -22,7 +22,7 @@ var la_carta_oculta_de_la_pc = null
 
 func _input(event):
 	if event.is_action_pressed("ui_home"):
-		get_tree().change_scene("res://CASINO FISICO INTERFAZ/casino fisico.tscn")
+		GLOBAL.emit_signal("salir")
 
 func cartas_pc(ocultar_esta: bool = false):
 	lugarpc += 20

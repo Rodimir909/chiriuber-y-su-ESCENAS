@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://CASINO FISICO INTERFAZ/CASINO FISICO.png" type="Texture" id=1]
 [ext_resource path="res://CASINO FISICO INTERFAZ/casino fisico.gd" type="Script" id=2]
 [ext_resource path="res://PLAYER/playertscn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ELEMENTOS/elemnto negrto.png" type="Texture" id=4]
+[ext_resource path="res://CASINO FISICO INTERFAZ/blackjack/mesa.tscn" type="PackedScene" id=5]
+[ext_resource path="res://CASINO FISICO INTERFAZ/ruleta/ruletaa.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 52.75, 9 )
@@ -50,6 +52,8 @@ extents = Vector2( 40.5, 8.5 )
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -1024.0
+margin_bottom = -600.0
 script = ExtResource( 2 )
 JUGADOR = ExtResource( 3 )
 
@@ -98,6 +102,22 @@ tile_data = PoolIntArray( -327692, 0, 0, -327691, 0, 0, -327690, 0, 0, -327688, 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SALIR"]
 position = Vector2( 480.5, 586.5 )
 shape = SubResource( 7 )
+
+[node name="Control" type="Control" parent="."]
+visible = false
+anchor_right = 1.00098
+anchor_bottom = 0.995
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="blackjack" parent="Control" instance=ExtResource( 5 )]
+layer = 5
+visible = false
+
+[node name="ruleta" parent="Control" instance=ExtResource( 6 )]
+layer = 5
+visible = false
 
 [connection signal="body_entered" from="blackjack" to="." method="_on_blackjack_body_entered"]
 [connection signal="body_entered" from="ruleta" to="." method="_on_ruleta_body_entered"]

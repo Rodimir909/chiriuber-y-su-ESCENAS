@@ -4,7 +4,7 @@
 [ext_resource path="res://CELULAR/DIUB/pasajeros/pasajero.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 9.5, 10 )
+extents = Vector2( 12.5, 10 )
 
 [node name="Node2D" type="Node2D"]
 rotation = 3.14159
@@ -13,7 +13,7 @@ script = ExtResource( 2 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 4.5897e-07, 5.5 )
+position = Vector2( -1.0401e-05, 8.5 )
 rotation = 1.5708
 shape = SubResource( 1 )
 

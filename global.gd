@@ -8,14 +8,18 @@ onready var time = true
 var nombre : String 
 
 var posiccion: Vector2
-
+signal guardartelefono
 signal viaje
 signal establecerpunto
 signal fin
 signal aceptado
+signal salir
+signal esconcasino
 
 var origen_pasajero : Vector2
 var destino_pasajero : Vector2
+
+var no = false
 
 var buscado : bool = false
 var acepta : bool = false
