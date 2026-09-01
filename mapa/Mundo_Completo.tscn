@@ -519,7 +519,6 @@ format = 1
 tile_data = PoolIntArray( 4981073, 2, 0, 15859993, 0, 0 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 9 )]
-position = Vector2( 9000, 8049 )
 
 [node name="Auto" parent="." instance=ExtResource( 7 )]
 position = Vector2( 139, 37 )
