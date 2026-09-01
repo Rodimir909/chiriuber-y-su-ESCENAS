@@ -223,6 +223,7 @@ custom_fonts/font = SubResource( 8 )
 text = "EN VIAJE"
 
 [node name="generacion" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="pressed" from="start-stop" to="." method="_on_startstop_pressed"]
 [connection signal="pressed" from="fondo viajes/aceptar" to="." method="_on_aceptar_pressed"]

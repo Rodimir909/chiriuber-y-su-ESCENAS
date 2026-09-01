@@ -5,6 +5,7 @@ var metros : int
 var tiemp : int
 var tr : bool = false
 var cancelar : bool = false
+var c = 1
 
 #104 nombres
 var nombres = [
@@ -24,6 +25,8 @@ var nombres = [
 func _ready():
 	GLOBAL.connect("fin", self, "fina")
 
+
+
 func _physics_process(delta):
 	if tr==true:
 		$"fondo viajes/ProgressBar".value-=1
@@ -31,7 +34,11 @@ func _physics_process(delta):
 			GLOBAL.acepta=false
 			$"fondo viajes".visible=false
 			tr=false
+			print("barra")
+			c=1
 			tiempo()
+
+			
 
 func fina():
 	$"start-stop".visible=true
@@ -42,7 +49,11 @@ func fina():
 	$"fondo viajes/Label".visible=false
 	$"fondo viajes".visible=false
 	GLOBAL.peso+=int(precio)
+	print("final")
+	c+=1
 	tiempo()
+
+
 
 func zonaorigen():
 	if GLOBAL.origen_pasajero.x<7114 and GLOBAL.origen_pasajero.y>0:
@@ -63,14 +74,20 @@ func zonadestino():
 		$"fondo viajes/destino".text="Zona Noreste"
 	elif GLOBAL.destino_pasajero.x<7114 and GLOBAL.destino_pasajero.y<0:
 		$"fondo viajes/destino".text="Zona Suroeste"
-	elif GLOBAL.destino_pasajero.x>7114 and GLOBAL.destino_pasajero.y<0 and GLOBAL.destino_pasajero.y>3594:
+	elif GLOBAL.destino_pasajero.x>7114 and GLOBAL.destino_pasajero.y<0 and GLOBAL.destino_pasajero.y<3594:
 		$"fondo viajes/destino".text="Zona Noreste"
 	elif GLOBAL.destino_pasajero.x>7114 and GLOBAL.destino_pasajero.y>3594:
 		$"fondo viajes/destino".text="Zona Sur"
 
+
+
 func tiempo():
-	tiemp=GLOBAL.random(5, 120)
-	$generacion.start(tiemp)
+	if c==1:
+		tiemp=GLOBAL.random(5, 120)
+		$generacion.start(tiemp)
+		print("tiempo=", tiemp)
+
+
 
 func generacion():
 	$"fondo viajes/ProgressBar".value=1000
@@ -79,6 +96,9 @@ func generacion():
 	GLOBAL.enviaje=true
 	$"fondo viajes".visible=true
 	tr=true
+	print("a")
+
+
 
 func aleo():
 	$"fondo viajes/nombres".text=nombres[GLOBAL.random(0,105)]
@@ -91,27 +111,39 @@ func aleo():
 		$"fondo viajes/distancia".text=str(metros)+"m"
 	precio = stepify((200+(metros*0.5)),10)
 	$"fondo viajes/precio".text=str("$", precio)
-	
+
+
 func _on_startstop_pressed():
 	if $"start-stop/AnimatedSprite".animation=="start":
 		$"start-stop/AnimatedSprite".play("stop")
+		print("start")
 		tiempo()
 	else:
 		$"start-stop/AnimatedSprite".play("start")
+		print("stop")
 		$generacion.stop()
 		GLOBAL.acepta=false
 		$"fondo viajes".visible=false
 		GLOBAL.enviaje=false
 
 
+
+
+
 func _on_rechazar_pressed():
+	print("rechazado")
 	GLOBAL.acepta=false
 	$"fondo viajes".visible=false
 	tr=false
+	c=1
 	tiempo()
 
 
+
+
+
 func _on_aceptar_pressed():
+	print("aceptado")
 	$"start-stop".visible=false
 	$"fondo viajes/ProgressBar".visible=false
 	$"fondo viajes/ProgressBar".value=1000
@@ -123,5 +155,10 @@ func _on_aceptar_pressed():
 	GLOBAL.emit_signal("aceptado")
 
 
+
+
+
 func _on_generacion_timeout():
+	c=0
 	generacion()
+
